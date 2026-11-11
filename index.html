@@ -1,0 +1,201 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Our Wedding Fund</title>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#ED3D83"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding Fund"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ED3D83;--pinkS:#FCE5EF;--lav:#A477F5;--lavS:#EEE6FD;--sky:#70C8E8;--skyS:#DDF1F9;--grn:#9AD76C;--grnS:#E8F6DC;--cream:#FFF3E8;--bg:#FFFAFC;--card:#fff;--tx:#29243B;--mu:#7a7590;--ln:#f0e8ee;--bar:rgba(255,255,255,.75);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--bar:rgba(255,255,255,.14)}}
+:root[data-theme="dark"]{--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--bar:rgba(255,255,255,.14)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 15px/1.45 'Plus Jakarta Sans',Nunito,system-ui,sans-serif}
+.blob{position:fixed;z-index:-1;border-radius:50%;pointer-events:none}
+#app{display:flex;min-height:100vh}
+aside{display:none;width:230px;flex:none;padding:26px 16px;position:sticky;top:0;height:100vh}
+.logo{font-weight:800;font-size:22px;line-height:1.05;margin:0 8px 28px}.logo span{color:var(--pink)}
+main{flex:1;min-width:0;max-width:1000px;margin:0 auto;padding:22px 16px 120px}
+h1{font-size:26px;margin:0}h2{margin:0 0 12px;font-size:20px}h3{margin:22px 0 10px;font-size:16px}
+.mu{color:var(--mu);font-size:13px}
+.c{border-radius:26px;padding:18px;background:var(--card);box-shadow:0 8px 24px rgba(41,36,59,.07)}
+.pk{background:var(--pinkS)}.lv{background:var(--lavS)}.sk{background:var(--skyS)}.gr{background:var(--grnS)}.cr{background:var(--cream)}
+.big{font-size:27px;font-weight:800;letter-spacing:-.5px}.pct{font-size:34px;font-weight:800;color:var(--pink)}
+.g{display:grid;gap:14px;grid-template-columns:1fr;margin-top:14px}.g2{grid-template-columns:1fr 1fr}
+.bar{height:13px;border-radius:9px;background:var(--bar);margin:10px 0 6px;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:var(--pink);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.up{color:#3b9a2a;font-weight:700}.dn{color:#d0245f;font-weight:700}
+.row{display:flex;gap:10px;align-items:center}.sp{justify-content:space-between}
+.tr{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--ln)}.tr:last-child{border:0}
+.ic{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;flex:none;font-weight:800}
+.tr .m{flex:1;min-width:0}.tr b{display:block}
+.av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--lav)}.av.d{background:var(--pink)}
+input,select{font:inherit;color:inherit;background:var(--bg);border:1.5px solid var(--ln);border-radius:14px;padding:11px 13px;width:100%;min-height:46px}
+.bad{border-color:var(--pink)}
+.bt{background:var(--pink);color:#fff;border:0;border-radius:99px;padding:12px 22px;font:inherit;font-weight:700;cursor:pointer;min-height:46px;white-space:nowrap}
+.bt.o{background:transparent;color:var(--pink);border:1.5px solid var(--pink)}.bt:disabled{opacity:.5}
+.x{background:none;border:0;color:var(--mu);font-size:20px;cursor:pointer;padding:8px}
+.nb{display:flex;align-items:center;gap:12px;width:100%;border:0;background:none;color:var(--mu);font:inherit;font-weight:700;padding:13px 14px;border-radius:18px;cursor:pointer}
+.nb.on{background:var(--pinkS);color:var(--pink)}
+nav.bot{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;align-items:center;background:var(--card);border-top:1px solid var(--ln);padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px));z-index:20}
+nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 10px}
+.fab{width:58px;height:58px;border-radius:50%;border:0;background:var(--pink);color:#fff;display:grid;place-items:center;margin-top:-30px;box-shadow:0 8px 20px rgba(237,61,131,.45);cursor:pointer}
+.ov{position:fixed;inset:0;background:rgba(41,36,59,.5);display:none;align-items:flex-end;justify-content:center;z-index:50}.ov.on{display:flex}
+.sh{background:var(--card);width:100%;max-width:520px;max-height:92vh;overflow:auto;border-radius:28px 28px 0 0;padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px));animation:up .3s ease-out}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}.fg label{font-size:12px;color:var(--mu);font-weight:700}.fg label input,.fg label select{margin-top:4px;color:var(--tx)}.fg .w{grid-column:1/-1}
+.fl{font-size:12px;font-weight:700;color:var(--mu);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;border-radius:16px}.chips.bad{outline:1.5px solid var(--pink);outline-offset:4px}
+.chip{font:inherit;font-weight:700;font-size:14px;color:var(--tx);background:var(--bg);border:1.5px solid var(--ln);border-radius:99px;padding:9px 15px;min-height:42px;cursor:pointer}
+.chip.on{background:var(--pinkS);border-color:var(--pink);color:var(--pink)}.chips.q .chip{font-size:13px;padding:7px 12px;min-height:36px;color:var(--mu)}
+#msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
+#lk{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;padding:20px}
+.lkb{width:100%;max-width:300px;text-align:center}.lkb .logo{margin:0 0 8px;font-size:26px}
+.dots{display:flex;gap:14px;justify-content:center;margin:22px 0 26px}.dots i{width:15px;height:15px;border-radius:50%;border:2px solid var(--pink)}.dots i.f{background:var(--pink)}
+.dots.shk{animation:sk .4s}@keyframes sk{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pad button{height:62px;border-radius:50%;border:0;background:var(--pinkS);color:var(--tx);font:800 22px inherit;font-family:inherit;cursor:pointer}.pad button:active{background:var(--pink);color:#fff}.pad .z{visibility:hidden}
+@media(min-width:860px){aside{display:block}nav.bot{display:none}main{padding-bottom:50px}.g3{grid-template-columns:repeat(3,1fr)}.ov{align-items:center}.sh{border-radius:28px}.toast{bottom:40px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
+<div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
+<div id="app"></div>
+<div id="lk"><div class="lkb"><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Enter PIN</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div></div></div>
+<div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
+<div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
+<div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
+<div id="msg"></div><div id="fm"></div>
+<button class="bt" id="cf" style="width:100%;margin-top:6px" onclick="save()">Confirm transaction</button></div></div>
+<div class="toast" id="ts"></div>
+<script>
+const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MON=['jan','feb','mar','apr','mei','jun','jul','agu','sep','okt','nov','des'],MN=['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+const today=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Makassar'}),p2=n=>String(n).padStart(2,'0');
+const fmt=d=>d?`${d.slice(8)} ${MN[+d.slice(5,7)-1]} ${d.slice(0,4)}`:'';
+const rp=n=>(n<0?'-':'')+'Rp'+Math.round(Math.abs(n)).toLocaleString('id-ID');
+const sum=(a,f)=>a.reduce((s,x)=>s+f(x),0),LS=(k,v)=>{try{return v===undefined?localStorage.getItem(k):v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
+const TY={saving:['Savings','var(--grnS)','+'],invest:['Investment','var(--lavS)','↗'],redeem:['Redemption','var(--skyS)','↙'],spend:['Wedding spend','var(--pinkS)','−']};
+const SPC=['Venue','Catering','Decor','Attire','Photo/Video','Invitation','Other'],CATS=['Money Market','Fixed Income','Equity','Balanced','Other'],PL=['Bibit','Bareksa','Ajaib','Jago','Bank'];
+let S={v:'home',fp:'',ft:'',ok:false,st:'',target:50000000,tdate:'2027-10-14',h:[],tx:[]};
+/* ---------- PIN ---------- */
+const HASH='3e01260a402d0a920f2d76564e2259806f2c762fd035d3323e980e4d71a63806';let pin='',UN=false,hid_t=0;
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+const dots=()=>$('dots').innerHTML=[0,1,2,3,4,5].map(i=>`<i class="${i<pin.length?'f':''}"></i>`).join('');
+$('pad').innerHTML=[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="${k===''?'z':''}" onclick="key('${k}')">${k}</button>`).join('');dots();
+async function key(k){if(UN||!k&&k!==0)return;if(k=='⌫')pin=pin.slice(0,-1);else if(pin.length<6)pin+=k;dots();if(pin.length<6)return;
+let ok=false;try{ok=await sha(pin)==HASH}catch(e){toast('Open this app via its https link')}
+if(ok){UN=true;$('lk').style.display='none';pin='';dots();start()}else{$('dots').classList.add('shk');navigator.vibrate&&navigator.vibrate(120);setTimeout(()=>{$('dots').classList.remove('shk');pin='';dots()},400)}}
+addEventListener('keydown',e=>{if(!UN&&/^\d$/.test(e.key))key(e.key);if(!UN&&e.key=='Backspace')key('⌫')});
+function lockNow(){UN=false;pin='';dots();$('lk').style.display='grid';closeSh()}
+document.addEventListener('visibilitychange',()=>{if(document.hidden)hid_t=Date.now();else if(UN){if(Date.now()-hid_t>12e4)lockNow();else if(cfg())load()}});
+/* ---------- GitHub sync (data.json in a private repo) ---------- */
+const cfg=()=>{try{return JSON.parse(LS('wf_cfg'))}catch(e){return null}};let SHA='';
+const H=()=>({Authorization:'Bearer '+cfg().token,Accept:'application/vnd.github+json'});
+const b64d=s=>decodeURIComponent(escape(atob(s.replace(/\n/g,'')))),b64e=s=>btoa(unescape(encodeURIComponent(s)));
+const API=()=>'https://api.github.com/repos/'+cfg().repo;
+async function pull(){const r=await fetch(API()+'/contents/data.json?t='+Date.now(),{headers:H(),cache:'no-store'});
+if(r.status==404){const q=await fetch(API(),{headers:H()});if(!q.ok)throw new Error('Repo not found, or the token has no access to it');SHA='';return}
+if(r.status==401)throw new Error('Token rejected. Check it in Profile');if(!r.ok)throw new Error('GitHub error '+r.status);
+const j=await r.json();SHA=j.sha;Object.assign(S,JSON.parse(b64d(j.content)))}
+async function push(msg){const r=await fetch(API()+'/contents/data.json',{method:'PUT',headers:H(),body:JSON.stringify({message:msg,content:b64e(JSON.stringify({target:S.target,tdate:S.tdate,h:S.h,tx:S.tx},null,1)),sha:SHA||undefined})});
+if(r.status==409||r.status==422)return false;if(!r.ok)throw new Error('Save failed ('+r.status+')');SHA=(await r.json()).content.sha;return true}
+async function mutate(fn,msg){try{for(let i=0;i<3;i++){await pull();fn();if(await push(msg)){S.ok=true;S.st='Synced';R();return true}}throw new Error('Sync conflict, please try again')}catch(e){toast(e.message);load();return false}}
+async function load(){S.st='Syncing…';R();try{await pull();S.ok=true;S.st='Synced'}catch(e){S.st='Offline: '+e.message}R()}
+function start(){if(!cfg()){S.v='setup';R()}else{if(S.v=='setup')S.v='home';load()}}
+async function connect(){const repo=$('gr').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,''),token=$('gt').value.trim();if(!/^[\w.-]+\/[\w.-]+$/.test(repo)||!token)return toast('Fill repo as owner/name and the token');
+LS('wf_cfg',JSON.stringify({repo,token}));try{await pull();S.ok=true;S.st='Synced';S.v='home';R();toast('Connected')}catch(e){LS('wf_cfg',null);toast(e.message)}}
+function disconnect(){if(confirm('Disconnect this phone? Your data stays safe in GitHub.')){LS('wf_cfg',null);S.ok=false;S.v='setup';R()}}
+/* ---------- calc & views ---------- */
+function calc(){const T=S.tx,by=t=>sum(T.filter(x=>x.type==t),x=>x.amt),sv=by('saving'),iv=by('invest'),rd=by('redeem'),sp=by('spend');
+let pv=0;S.h.forEach(h=>{pv+=(h.v||0)+sum(T.filter(x=>x.hid==h.id&&x.date>(h.vd||'')),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0)});
+const cash=sv+rd-sp,cap=iv-rd,fund=cash+pv,per=n=>sum(T.filter(x=>x.person==n&&(x.type=='saving'||x.type=='invest')),x=>x.amt);
+const left=Math.max(0,S.target-fund),mo=Math.max(1,Math.ceil((new Date(S.tdate)-new Date(today()))/2629800000));
+return{cash,cap,pv,pl:pv-cap,fund,left,pct:Math.min(1,fund/S.target),F:per('Ferry'),D:per('Dini'),pm:left/mo}}
+const I=n=>`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${{home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',tx:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',inv:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',pro:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',plus:'<path d="M12 5v14M5 12h14"/>'}[n]}</svg>`;
+const NAV=[['home','Home'],['tx','Transactions'],['inv','Investments'],['pro','Profile']];
+const nb=n=>`<button class="nb${S.v==n[0]?' on':''}" onclick="go('${n[0]}')">${I(n[0])}${n[1]}</button>`;
+function row(x){const t=TY[x.type],h=S.h.find(h=>h.id==x.hid),sub=[fmt(x.date),x.person,h?h.plat:'',x.cat,x.note].filter(Boolean).join(' • ');
+return`<div class="tr"><div class="ic" style="background:${t[1]}">${t[2]}</div><div class="m"><b>${t[0]}${h?' – '+esc(h.name):''}</b><span class="mu">${esc(sub)}</span></div><b>${x.type=='spend'?'-':''}${rp(x.amt)}</b>${S.v=='tx'?`<button class="x" aria-label="Delete" onclick="del(${x.id})">×</button>`:''}</div>`}
+const recent=n=>[...S.tx].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id).slice(0,n);
+const msg=p=>p>=1?'Target reached. Congratulations!':p>=.75?'Almost there, the finish line is close!':p>=.5?'Past halfway. Keep it up!':p>=.25?'You’re doing great, keep going!':'Great start. Little by little, we’ll get there.';
+const hv=h=>sum(S.tx.filter(x=>x.hid==h.id&&x.date>(h.vd||'')),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0)+(h.v||0);
+function view(){
+if(S.v=='setup')return`<h1>Connect to GitHub</h1><div class="c" style="margin-top:14px"><p class="mu">One-time setup per phone. Your data lives in a private GitHub repo, so Ferry and Dini always see the same numbers.</p><div class="fg"><label class="w">Data repo (owner/name)<input id="gr" autocapitalize="off" autocorrect="off" placeholder="ferry/wedding-data"></label><label class="w">Access token<input id="gt" type="password" autocapitalize="off" placeholder="github_pat_…"></label></div><button class="bt" style="width:100%" onclick="connect()">Connect</button></div>`;
+if(!S.ok)return`<h1>Our Wedding Fund</h1><div class="c" style="margin-top:14px"><b>${S.st.startsWith('Offline')?esc(S.st):'Loading your savings…'}</b><p class="mu">${S.st.startsWith('Offline')?'Check your connection, then try again.':'Fetching the latest data from GitHub.'}</p><button class="bt o" onclick="load()">Try again</button></div>`;
+const c=calc();
+if(S.v=='home')return`<div class="row sp"><div><h1>Hey Ferry &amp; Dini!</h1><p class="mu" style="margin:2px 0 0">${fmt(today())} • ${esc(S.st)}</p></div><button class="x" aria-label="Sync now" onclick="load()">↻</button></div>
+<div class="c pk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Our wedding fund</span><div class="big" data-n="${c.fund}">${rp(c.fund)}</div></div><div class="pct">${Math.round(c.pct*100)}%</div></div>
+<div class="bar"><i style="width:0" data-w="${c.pct*100}"></i></div><div class="row sp mu"><span>${rp(c.left)} to go of ${rp(S.target)}</span><span>by ${fmt(S.tdate)}</span></div>
+<p style="margin:10px 0 0"><b>${msg(c.pct)}</b> <span class="mu">About ${rp(c.pm)} per month to reach the target.</span></p></div>
+<div class="g g3"><div class="c lv"><span class="mu">Invested capital</span><div class="big">${rp(c.cap)}</div></div>
+<div class="c sk"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div>
+<div class="c gr"><span class="mu">Cash savings</span><div class="big">${rp(c.cash)}</div></div></div>
+<div class="g g2"><div class="c cr"><div class="row"><div class="av">F</div><div><span class="mu">Ferry contributed</span><div class="big" style="font-size:20px">${rp(c.F)}</div></div></div></div>
+<div class="c cr"><div class="row"><div class="av d">D</div><div><span class="mu">Dini contributed</span><div class="big" style="font-size:20px">${rp(c.D)}</div></div></div></div></div>
+<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
+if(S.v=='tx'){const L=recent(999).filter(x=>(!S.fp||x.person==S.fp)&&(!S.ft||x.type==S.ft));
+return`<div class="row sp"><h1>Transactions</h1><button class="bt" onclick="openSh()">+ Add</button></div>
+<div class="g g2"><select onchange="S.fp=this.value;R()"><option value="">All contributors</option>${['Ferry','Dini'].map(p=>`<option${S.fp==p?' selected':''}>${p}</option>`)}</select>
+<select onchange="S.ft=this.value;R()"><option value="">All types</option>${Object.keys(TY).map(k=>`<option value="${k}"${S.ft==k?' selected':''}>${TY[k][0]}</option>`)}</select></div>
+<div class="c" style="margin-top:14px">${L.map(row).join('')||'<p class="mu">No transactions match. Tap Add to record one.</p>'}</div>`}
+if(S.v=='inv')return`<h1>Investments</h1><div class="c sk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Total invested capital</span><div class="big">${rp(c.cap)}</div></div><div style="text-align:right"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div></div></div>
+<p class="mu">Updating a value never creates a transaction, so nothing is counted twice. New funds are added when you record an investment.</p><div class="g">${S.h.map(h=>{const cp=sum(S.tx.filter(x=>x.hid==h.id),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0),v=hv(h);
+return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
+<div class="row"><input id="v${h.id}" type="number" inputmode="numeric" placeholder="New current value (Rp)"><button class="bt o" onclick="setV(${h.id})">Update</button></div></div>`}).join('')||'<div class="c"><p class="mu">No funds yet. Record an investment and choose “New mutual fund”.</p></div>'}</div>`;
+return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" style="margin-bottom:12px"><div class="av">F</div><b>Ferry</b><div class="av d" style="margin-left:16px">D</div><b>Dini</b></div>
+<h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label></div>
+<p class="mu">Currency IDR • Date format DD MMM YYYY • Timezone Asia/Makassar</p></div>
+<div class="c" style="margin-top:14px"><h2>This phone</h2><p class="mu">Connected to ${esc((cfg()||{}).repo||'')} • ${esc(S.st)}</p><div class="row" style="flex-wrap:wrap"><button class="bt o" onclick="load()">Sync now</button><button class="bt o" onclick="lockNow()">Lock now</button><button class="bt o" onclick="disconnect()">Disconnect</button></div></div>`}
+function R(){$('app').innerHTML=`<aside><div class="logo">Our<br><span>Wedding</span><br>Fund</div>${NAV.map(nb).join('')}<button class="bt" style="width:100%;margin-top:18px" onclick="openSh()">Add transaction</button></aside>
+<main>${view()}</main>${S.v=='setup'?'':`<nav class="bot">${nb(NAV[0])}${nb(NAV[1])}<button class="fab" aria-label="Add transaction" onclick="openSh()">${I('plus')}</button>${nb(NAV[2])}${nb(NAV[3])}</nav>`}`;
+document.querySelectorAll('[data-n]').forEach(e=>{const n=+e.dataset.n,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/800);e.textContent=rp(n*p);if(p<1)requestAnimationFrame(f)})(t0)});
+requestAnimationFrame(()=>document.querySelectorAll('[data-w]').forEach(e=>e.style.width=e.dataset.w+'%'))}
+function go(v){S.v=v;R();scrollTo(0,0)}
+function toast(t){const e=$('ts');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2600)}
+async function del(id){if(confirm('Delete this transaction? This cannot be undone.')&&await mutate(()=>{S.tx=S.tx.filter(x=>x.id!=id)},'Delete transaction'))toast('Deleted')}
+async function setV(id){const n=+$('v'+id).value;if(!(n>0))return toast('Enter a value in rupiah');if(await mutate(()=>{const h=S.h.find(h=>h.id==id);if(h){h.v=n;h.vd=today()}},'Update fund value'))toast('Value updated')}
+async function setT(k,v){if(!v)return;await mutate(()=>{S[k]=v},'Update target')}
+/* ---------- Entry: quick text + structured form ---------- */
+let E={},bad=[],busy=false;
+const blank=()=>({date:today(),person:LS('wf_me')||'',type:'',amt:0,hid:'',plat:'',cat:'',fund:'',sc:'',note:''});
+function parse(t){let s=' '+t.toLowerCase()+' ',e=blank(),m,td=today();e.date='';
+if(m=s.match(/\b(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})\b/)){e.date=`${m[3]}-${p2(m[2])}-${p2(m[1])}`;s=s.replace(m[0],' ')}
+else if(m=s.match(/\b(\d{1,2})\s+(jan|feb|mar|apr|mei|jun|jul|agu|sep|okt|nov|des)\w*(?:\s+(\d{4}))?/)){e.date=`${m[3]||td.slice(0,4)}-${p2(MON.indexOf(m[2])+1)}-${p2(m[1])}`;s=s.replace(m[0],' ')}
+else if(s.includes('kemarin')){e.date=new Date(new Date(td+'T00:00:00Z')-864e5).toISOString().slice(0,10);s=s.replace('kemarin',' ')}
+else{e.date=td;s=s.replace('hari ini',' ')}
+if(m=s.match(/(\d+(?:[.,]\d+)?)\s*(rb|ribu|jt|juta|k)\b/)){e.amt=Math.round(parseFloat(m[1].replace(',','.'))*(/^(rb|ribu|k)$/.test(m[2])?1e3:1e6));s=s.replace(m[0],' ')}
+else if(m=s.match(/rp\.?\s*([\d.,]+)/)){e.amt=parseInt(m[1].replace(/[.,]/g,''))||0;s=s.replace(m[0],' ')}
+else if(m=s.match(/\b(\d{1,3}(?:[.,]\d{3})+|\d{4,})\b/)){e.amt=parseInt(m[1].replace(/[.,]/g,''));s=s.replace(m[0],' ')}
+const f=s.indexOf('ferry'),d=s.indexOf('dini');e.person=f>=0&&(d<0||f<d)?'Ferry':d>=0?'Dini':e.person;
+e.type=/jual|cairkan|tarik|redeem/.test(s)?'redeem':/investasi|invest|beli|top ?up/.test(s)?'invest':/bayar|\bdp\b|pelunasan|belanja|pakai/.test(s)?'spend':/nabung|tabung|setor|nambah/.test(s)?'saving':'';
+if(m=s.match(/bibit|bareksa|ajaib|jago|bni|bca|mandiri/))e.plat=m[0][0].toUpperCase()+m[0].slice(1);
+e.cat=/pasar uang/.test(s)?'Money Market':/pendapatan tetap|obligasi/.test(s)?'Fixed Income':/saham/.test(s)?'Equity':/campuran/.test(s)?'Balanced':'';
+e.sc=/katering|catering/.test(s)?'Catering':/gedung|venue/.test(s)?'Venue':/dekor/.test(s)?'Decor':/baju|busana|gaun|jas/.test(s)?'Attire':/foto|video/.test(s)?'Photo/Video':/undangan/.test(s)?'Invitation':e.type=='spend'?'Other':'';
+if(e.type=='invest'||e.type=='redeem'){const C=S.h.filter(h=>(!e.plat||h.plat.toLowerCase()==e.plat.toLowerCase())&&(!e.cat||h.cat==e.cat));
+if(C.length==1)e.hid=String(C[0].id);else if(e.type=='invest'&&!C.length&&(e.plat||e.cat)){e.hid='new';e.fund=e.cat?'Reksa Dana '+e.cat:''}}
+return e}
+const miss=()=>{const b=[];if(!E.date)b.push('date');if(!E.person)b.push('person');if(!E.type)b.push('type');if(!(E.amt>0))b.push('amt');
+if(E.type=='invest'||E.type=='redeem'){if(!E.hid)b.push('fund');else if(E.hid=='new'&&!E.fund.trim())b.push('fund')}return b};
+const LBL={date:'date',person:'who',type:'type',amt:'amount',fund:'mutual fund'};
+const opt=(a,v)=>a.map(x=>`<option value="${x}"${x==v?' selected':''}>${x||'Choose…'}</option>`).join('');
+function form(){const fx=E.type=='invest'||E.type=='redeem',b=k=>bad.includes(k)?' bad':'';
+const ch=(k,a,v)=>`<div class="chips${b(k)}">${a.map(x=>`<button type="button" class="chip${x[0]==v?' on':''}" onclick="E.${k}='${x[0]}';form()">${x[1]}</button>`).join('')}</div>`;
+$('fm').innerHTML=`<div class="fl">What is it?</div>${ch('type',Object.keys(TY).map(k=>[k,TY[k][2]+' '+TY[k][0]]),E.type)}
+<div class="fl">Who</div>${ch('person',[['Ferry','Ferry'],['Dini','Dini']],E.person)}
+<div class="fl">Amount</div><input id="am" inputmode="numeric" class="${b('amt').trim()}" placeholder="Rp 0" value="${E.amt?E.amt.toLocaleString('id-ID'):''}" oninput="amt(this)">
+<div class="chips q" style="margin-top:8px">${[[1e5,'100rb'],[5e5,'500rb'],[1e6,'1jt'],[5e6,'5jt']].map(x=>`<button type="button" class="chip" onclick="addA(${x[0]})">+${x[1]}</button>`).join('')}<button type="button" class="chip" onclick="E.amt=0;$('am').value=''">Clear</button></div>
+${fx?`<div class="fl">Mutual fund</div><select class="${b('fund').trim()}" onchange="E.hid=this.value;form()"><option value="">Choose fund…</option>${S.h.map(h=>`<option value="${h.id}"${E.hid==h.id?' selected':''}>${esc(h.name)} · ${esc(h.plat)}</option>`).join('')}${E.type=='invest'?`<option value="new"${E.hid=='new'?' selected':''}>＋ New mutual fund…</option>`:''}</select>
+${E.hid=='new'?`<div class="fg"><label class="w">Fund name<input class="${b('fund').trim()}" value="${esc(E.fund)}" oninput="E.fund=this.value" placeholder="Reksa Dana Pasar Uang"></label><label>Platform<input list="pl" value="${esc(E.plat)}" oninput="E.plat=this.value" placeholder="Bibit…"><datalist id="pl">${PL.map(p=>`<option>${p}`).join('')}</datalist></label><label>Category<select onchange="E.cat=this.value">${opt(['',...CATS],E.cat)}</select></label></div>`:''}
+${E.type=='redeem'&&!S.h.length?'<p class="mu">No funds yet, so there is nothing to redeem.</p>':''}`:''}
+${E.type=='spend'?`<div class="fl">Spent on</div><div class="chips">${SPC.map(c=>`<button type="button" class="chip${E.sc==c?' on':''}" onclick="E.sc='${c}';form()">${c}</button>`).join('')}</div>`:''}
+<div class="fg"><label>Date<input type="date" class="${b('date').trim()}" value="${E.date}" oninput="E.date=this.value"></label><label>Notes (optional)<input value="${esc(E.note)}" oninput="E.note=this.value" placeholder="e.g. DP katering"></label></div>`}
+function amt(el){E.amt=+el.value.replace(/\D/g,'')||0;el.value=E.amt?E.amt.toLocaleString('id-ID'):''}
+function addA(n){E.amt+=n;$('am').value=E.amt.toLocaleString('id-ID')}
+function openSh(){E=blank();bad=[];$('sm').value='';$('msg').style.display='none';form();$('ov').classList.add('on')}
+function closeSh(){$('ov').classList.remove('on')}
+function readIt(){const t=$('sm').value.trim();if(!t)return;E=parse(t);bad=miss();form();const m=$('msg');m.style.display='block';
+m.textContent=bad.length?'I couldn’t find: '+bad.map(k=>LBL[k]).join(', ')+'. Please fill it in below. Nothing is saved yet.':'Check the details below. Nothing is saved until you confirm.'}
+async function save(){if(busy)return;bad=miss();if(bad.length){form();const m=$('msg');m.style.display='block';m.textContent='Please complete: '+bad.map(k=>LBL[k]).join(', ')+'.';return}
+busy=true;$('cf').disabled=true;$('cf').textContent='Saving…';LS('wf_me',E.person);const e={...E};
+const ok=await mutate(()=>{let hid=0;if(e.type=='invest'||e.type=='redeem'){if(e.hid=='new'){const n=e.fund.trim(),p=e.plat.trim()||'—';let h=S.h.find(h=>h.name.toLowerCase()==n.toLowerCase()&&h.plat.toLowerCase()==p.toLowerCase());
+if(!h){h={id:Date.now(),name:n,plat:p,cat:e.cat||'Other',v:0,vd:''};S.h.push(h)}hid=h.id}else hid=+e.hid}
+S.tx.push({id:Date.now(),date:e.date,person:e.person,type:e.type,amt:e.amt,hid,cat:e.type=='spend'?e.sc:'',note:e.note.trim()})},'Add '+e.type+' '+e.amt);
+busy=false;$('cf').disabled=false;$('cf').textContent='Confirm transaction';if(ok){closeSh();toast('Transaction saved')}}
+R();
+</script></body></html>
