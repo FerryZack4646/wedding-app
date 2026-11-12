@@ -16,7 +16,7 @@ h1{font-size:26px;margin:0}h2{margin:0 0 12px;font-size:20px}h3{margin:22px 0 10
 .mu{color:var(--mu);font-size:13px}
 .c{border-radius:26px;padding:18px;background:var(--card);box-shadow:0 8px 24px rgba(41,36,59,.07)}
 .pk{background:var(--pinkS)}.lv{background:var(--lavS)}.sk{background:var(--skyS)}.gr{background:var(--grnS)}.cr{background:var(--cream)}
-.big{font-size:27px;font-weight:800;letter-spacing:-.5px}.pct{font-size:34px;font-weight:800;color:var(--pink);background:linear-gradient(135deg,var(--pink),var(--lav));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.big{font-size:clamp(22px,6.6vw,27px);font-weight:800;letter-spacing:-.5px;overflow-wrap:anywhere}.bs{font-size:clamp(16px,5vw,20px)}.c{min-width:0}.pct{font-size:34px;font-weight:800;color:var(--pink);background:linear-gradient(135deg,var(--pink),var(--lav));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .g{display:grid;gap:14px;grid-template-columns:1fr;margin-top:14px}.g2{grid-template-columns:1fr 1fr}
 .bar{height:13px;border-radius:9px;background:var(--bar);margin:10px 0 6px;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--pink),var(--lav));transition:width 1s cubic-bezier(.2,.8,.2,1)}
 .up{color:#3b9a2a;font-weight:700}.dn{color:#d0245f;font-weight:700}
@@ -52,6 +52,7 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 .lg{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
 .hb{margin:12px 0 0}.hb .row{font-size:13px;margin-bottom:5px}.tk{height:13px;border-radius:9px;background:var(--bar);overflow:hidden}.tk i{display:block;height:100%;border-radius:9px}
 .ms{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.mb{padding:5px 12px;border-radius:99px;background:var(--bar);font-size:12px;font-weight:700;color:var(--mu)}.mb.on{background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff}
+.sum{display:flex;flex-direction:column;gap:14px}@media(min-width:560px){.sum{flex-direction:row;justify-content:space-between}.sum .r{text-align:right}}
 #msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
 #lk{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 12% 8%,var(--pinkS),transparent 48%),radial-gradient(circle at 92% 90%,var(--lavS),transparent 52%),radial-gradient(circle at 85% 12%,var(--skyS),transparent 32%),var(--bg);transition:opacity .4s,transform .4s}
@@ -78,7 +79,7 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 <div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
 <div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
 <div id="app"></div>
-<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v5</p></div></div>
+<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v6</p></div></div>
 <div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
 <div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
 <div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
@@ -155,17 +156,17 @@ if(S.v=='home')return`<div class="row sp"><div><h1>Hey Ferry &amp; Dini!</h1><p 
 <div class="g g3"><div class="c lv"><span class="mu">Invested capital</span><div class="big">${rp(c.cap)}</div></div>
 <div class="c sk"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div>
 <div class="c gr"><span class="mu">Cash savings</span><div class="big">${rp(c.cash)}</div></div></div>
-<div class="g g2"><div class="c cr"><div class="row"><div class="av">F</div><div><span class="mu">Ferry contributed</span><div class="big" style="font-size:20px">${rp(c.F)}</div></div></div></div>
-<div class="c cr"><div class="row"><div class="av d">D</div><div><span class="mu">Dini contributed</span><div class="big" style="font-size:20px">${rp(c.D)}</div></div></div></div></div>
+<div class="g g2"><div class="c cr"><div class="row"><div class="av">F</div><span class="mu">Ferry</span></div><div class="big bs" style="margin-top:8px">${rp(c.F)}</div><span class="mu">contributed</span></div>
+<div class="c cr"><div class="row"><div class="av d">D</div><span class="mu">Dini</span></div><div class="big bs" style="margin-top:8px">${rp(c.D)}</div><span class="mu">contributed</span></div></div>
 ${charts(c)}<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
 if(S.v=='tx'){const L=recent(999).filter(x=>(!S.fp||x.person==S.fp)&&(!S.ft||x.type==S.ft));
 return`<div class="row sp"><h1>Transactions</h1><button class="bt" onclick="openSh()">+ Add</button></div>
 <div class="g g2"><select onchange="S.fp=this.value;R()"><option value="">All contributors</option>${['Ferry','Dini'].map(p=>`<option${S.fp==p?' selected':''}>${p}</option>`)}</select>
 <select onchange="S.ft=this.value;R()"><option value="">All types</option>${Object.keys(TY).map(k=>`<option value="${k}"${S.ft==k?' selected':''}>${TY[k][0]}</option>`)}</select></div>
 <div class="c" style="margin-top:14px">${L.map(row).join('')||'<p class="mu">No transactions match. Tap Add to record one.</p>'}</div>`}
-if(S.v=='inv')return`<h1>Investments</h1><div class="c sk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Total invested capital</span><div class="big">${rp(c.cap)}</div></div><div style="text-align:right"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div></div></div>
+if(S.v=='inv')return`<h1>Investments</h1><div class="c sk" style="margin-top:14px"><div class="sum"><div><span class="mu">Total invested capital</span><div class="big">${rp(c.cap)}</div></div><div class="r"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div></div></div>
 <p class="mu">Updating a value never creates a transaction, so nothing is counted twice. New funds are added when you record an investment.</p><div class="g">${S.h.map(h=>{const cp=sum(S.tx.filter(x=>x.hid==h.id),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0),v=hv(h);
-return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(CL[h.cat]||h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
+return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(CL[h.cat]||h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0;flex-wrap:wrap"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
 <div class="row"><input id="v${h.id}" type="number" inputmode="numeric" placeholder="New current value (Rp)"><button class="bt o" onclick="setV(${h.id})">Update</button></div></div>`}).join('')||'<div class="c"><p class="mu">No funds yet. Record an investment and choose “New mutual fund”.</p></div>'}</div>`;
 return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" style="margin-bottom:12px"><div class="av">F</div><b>Ferry</b><div class="av d" style="margin-left:16px">D</div><b>Dini</b></div>
 <h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label></div>
