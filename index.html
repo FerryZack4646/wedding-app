@@ -71,7 +71,7 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 <div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
 <div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
 <div id="app"></div>
-<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div></div></div>
+<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v4</p></div></div>
 <div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
 <div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
 <div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
@@ -196,9 +196,10 @@ const miss=()=>{const b=[];if(!E.date)b.push('date');if(!E.person)b.push('person
 if(E.type=='invest'||E.type=='redeem'){if(!E.hid)b.push('fund');else if(E.hid=='new'&&!E.fund.trim())b.push('fund')}return b};
 const LBL={date:'date',person:'who',type:'type',amt:'amount',fund:'mutual fund'};
 const opt=(a,v)=>a.map(x=>`<option value="${x}"${x==v?' selected':''}>${x||'Choose…'}</option>`).join('');
-function pick(k,v){E[k]=v;if(k=='type'&&E.hid=='new'&&v!='invest')E.hid='';renderForm()}
+function pick(k,v){try{E[k]=v;if(k=='type'&&E.hid=='new'&&v!='invest')E.hid='';renderForm()}catch(e){toast('Error: '+e.message)}}
+document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('[data-k]');if(c)pick(c.dataset.k,c.dataset.v)});
 function renderForm(){const fx=E.type=='invest'||E.type=='redeem',b=k=>bad.includes(k)?' bad':'';
-const ch=(k,a,v,bk)=>`<div class="chips${b(bk||k)}">${a.map(x=>`<button type="button" class="chip${x[0]==v&&v!==''?' on':''}" onclick="pick('${k}','${x[0]}')">${x[1]}</button>`).join('')}</div>`;
+const ch=(k,a,v,bk)=>`<div class="chips${b(bk||k)}">${a.map(x=>`<button type="button" class="chip${x[0]==v&&v!==''?' on':''}" data-k="${k}" data-v="${esc(x[0])}">${x[1]}</button>`).join('')}</div>`;
 const pls=[...new Set([...PL,'Other',E.plat].filter(Boolean))];
 $('fm').innerHTML=`<div class="fl">What is it?</div>${ch('type',Object.keys(TY).map(k=>[k,TY[k][2]+' '+TY[k][0]]),E.type)}
 ${fx?`<div class="fl">Which fund?</div>${ch('hid',[...S.h.map(h=>[h.id,esc(h.name)+'<small>'+esc(h.plat)+' · '+esc(CL[h.cat]||h.cat)+'</small>']),...(E.type=='invest'?[['new','＋ New fund']]:[])],E.hid,'fund')}
