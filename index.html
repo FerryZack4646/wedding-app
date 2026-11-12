@@ -2,9 +2,9 @@
 <meta name="theme-color" content="#ED3D83"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Wedding Fund"><meta name="apple-mobile-web-app-status-bar-style" content="default"><link rel="apple-touch-icon" href="apple-touch-icon.png?v=2"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2"><link rel="icon" href="favicon.ico?v=2" sizes="any"><link rel="manifest" href="manifest.webmanifest?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--pink:#ED3D83;--pinkS:#FCE5EF;--lav:#A477F5;--lavS:#EEE6FD;--sky:#70C8E8;--skyS:#DDF1F9;--grn:#9AD76C;--grnS:#E8F6DC;--cream:#FFF3E8;--bg:#FFFAFC;--card:#fff;--tx:#29243B;--mu:#7a7590;--ln:#f0e8ee;--bar:rgba(255,255,255,.75);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--bar:rgba(255,255,255,.14)}}
-:root[data-theme="dark"]{--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--bar:rgba(255,255,255,.14)}
+:root{--pink:#ED3D83;--pinkS:#FCE5EF;--lav:#A477F5;--lavS:#EEE6FD;--sky:#70C8E8;--skyS:#DDF1F9;--grn:#9AD76C;--grnS:#E8F6DC;--cream:#FFF3E8;--ambS:#FFEBD2;--bg:#FFFAFC;--card:#fff;--tx:#29243B;--mu:#7a7590;--ln:#f0e8ee;--bar:rgba(255,255,255,.75);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--ambS:#4a3a24;--bar:rgba(255,255,255,.14)}}
+:root[data-theme="dark"]{--bg:#17141f;--card:#221e2e;--tx:#f4f1fa;--mu:#a59fbb;--ln:#332e42;--pinkS:#46233a;--lavS:#33294f;--skyS:#1f3745;--grnS:#2b3a22;--cream:#3a2f2a;--ambS:#4a3a24;--bar:rgba(255,255,255,.14)}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:500 15px/1.45 'Plus Jakarta Sans',Nunito,system-ui,sans-serif}
 .blob{position:fixed;z-index:-1;border-radius:50%;pointer-events:none}
@@ -53,6 +53,9 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 .hb{margin:12px 0 0}.hb .row{font-size:13px;margin-bottom:5px}.tk{height:13px;border-radius:9px;background:var(--bar);overflow:hidden}.tk i{display:block;height:100%;border-radius:9px}
 .ms{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.mb{padding:5px 12px;border-radius:99px;background:var(--bar);font-size:12px;font-weight:700;color:var(--mu)}.mb.on{background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff}
 .sum{display:flex;flex-direction:column;gap:14px}@media(min-width:560px){.sum{flex-direction:row;justify-content:space-between}.sum .r{text-align:right}}
+.seg{display:flex;gap:2px;height:18px;border-radius:99px;overflow:hidden;background:var(--bar);margin:12px 0 8px}.seg i{display:block;height:100%;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.lgd{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;font-weight:600;color:var(--mu)}.lgd i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}.lgd b{color:var(--tx)}
+.c.em{background:linear-gradient(135deg,var(--ambS),var(--pinkS))}
 #msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
 #lk{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 12% 8%,var(--pinkS),transparent 48%),radial-gradient(circle at 92% 90%,var(--lavS),transparent 52%),radial-gradient(circle at 85% 12%,var(--skyS),transparent 32%),var(--bg);transition:opacity .4s,transform .4s}
@@ -79,7 +82,7 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 <div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
 <div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
 <div id="app"></div>
-<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v6</p></div></div>
+<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v8</p></div></div>
 <div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
 <div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
 <div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
@@ -93,9 +96,9 @@ const today=()=>new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Makassar'}
 const fmt=d=>d?`${d.slice(8)} ${MN[+d.slice(5,7)-1]} ${d.slice(0,4)}`:'';
 const rp=n=>(n<0?'-':'')+'Rp'+Math.round(Math.abs(n)).toLocaleString('id-ID');
 const sum=(a,f)=>a.reduce((s,x)=>s+f(x),0),LS=(k,v)=>{try{return v===undefined?localStorage.getItem(k):v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
-const TY={saving:['Savings','var(--grnS)','+'],invest:['Investment','var(--lavS)','↗'],redeem:['Redemption','var(--skyS)','↙'],spend:['Wedding spend','var(--pinkS)','−']};
+const TY={saving:['Savings','var(--grnS)','+'],invest:['Investment','var(--lavS)','↗'],redeem:['Redemption','var(--skyS)','↙'],spend:['Wedding spend','var(--pinkS)','−'],emuse:['Emergency use','var(--ambS)','!']};
 const SPC=['Venue','Catering','Decor','Attire','Photo/Video','Invitation','Other'],CATS=['RDPU','RDPT','RDS','RDC','Other'],CL={RDPU:'RDPU · Pasar Uang',RDPT:'RDPT · Pendapatan Tetap',RDS:'RDS · Saham',RDC:'RDC · Campuran',Other:'Lainnya'},PL=['Bibit','Bareksa','Ajaib','Jago','Bank'];
-let S={v:'home',fp:'',ft:'',ok:false,st:'',target:50000000,tdate:'2027-10-14',h:[],tx:[]};
+let S={v:'home',fp:'',ft:'',ok:false,st:'',target:50000000,tdate:'2027-10-14',ep:5,ecap:100000,h:[],tx:[]};
 /* ---------- PIN ---------- */
 const HASH='3e01260a402d0a920f2d76564e2259806f2c762fd035d3323e980e4d71a63806';let pin='',PINV='',UN=false,hid_t=0;
 const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
@@ -115,8 +118,10 @@ const API=()=>'https://api.github.com/repos/'+cfg().repo;
 async function pull(){const r=await fetch(API()+'/contents/data.json?t='+Date.now(),{headers:H(),cache:'no-store'});
 if(r.status==404){const q=await fetch(API(),{headers:H()});if(!q.ok)throw new Error('Repo not found, or the token has no access to it');SHA='';return}
 if(r.status==401)throw new Error('Token rejected. Check it in Profile');if(!r.ok)throw new Error('GitHub error '+r.status);
-const j=await r.json();SHA=j.sha;Object.assign(S,JSON.parse(b64d(j.content)))}
-async function push(msg){const r=await fetch(API()+'/contents/data.json',{method:'PUT',headers:H(),body:JSON.stringify({message:msg,content:b64e(JSON.stringify({target:S.target,tdate:S.tdate,h:S.h,tx:S.tx},null,1)),sha:SHA||undefined})});
+const j=await r.json();SHA=j.sha;Object.assign(S,JSON.parse(b64d(j.content)));norm()}
+function norm(){if(S.ep==null)S.ep=5;if(S.ecap==null)S.ecap=100000;const run={};[...S.tx].sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id).forEach(x=>{if(x.type!='saving'&&x.type!='invest'){if(x.em==null)x.em=0;return}const k=x.person+x.date.slice(0,7);if(x.em==null){let e=Math.round(x.amt*S.ep/100);if(S.ecap>0)e=Math.max(0,Math.min(e,S.ecap-(run[k]||0)));x.em=e}run[k]=(run[k]||0)+x.em})}
+function emFor(p,d,a){let e=Math.round(a*(S.ep??5)/100);if(S.ecap>0){const u=sum(S.tx.filter(x=>x.person==p&&x.date.slice(0,7)==d.slice(0,7)),x=>x.em||0);e=Math.max(0,Math.min(e,S.ecap-u))}return e}
+async function push(msg){const r=await fetch(API()+'/contents/data.json',{method:'PUT',headers:H(),body:JSON.stringify({message:msg,content:b64e(JSON.stringify({target:S.target,tdate:S.tdate,ep:S.ep,ecap:S.ecap,h:S.h,tx:S.tx},null,1)),sha:SHA||undefined})});
 if(r.status==409||r.status==422)return false;if(!r.ok)throw new Error('Save failed ('+r.status+')');SHA=(await r.json()).content.sha;return true}
 async function mutate(fn,msg){try{for(let i=0;i<3;i++){await pull();fn();if(await push(msg)){S.ok=true;S.st='Synced';R();return true}}throw new Error('Sync conflict, please try again')}catch(e){toast(e.message);load();return false}}
 async function load(){S.st='Syncing…';R();try{await pull();S.ok=true;S.st='Synced'}catch(e){S.st='Offline: '+e.message}R()}
@@ -131,16 +136,17 @@ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.st
 async function autoCfg(){try{const r=await fetch('config.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return false;const j=await r.json(),pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:U(j.i)},await dk(PINV,U(j.s)),U(j.c));LS('wf_cfg',new TextDecoder().decode(pt));return true}catch(e){return false}}
 function disconnect(){if(confirm('Disconnect this phone? Your data stays safe in GitHub.')){LS('wf_cfg',null);S.ok=false;S.v='setup';R()}}
 /* ---------- calc & views ---------- */
-function calc(){const T=S.tx,by=t=>sum(T.filter(x=>x.type==t),x=>x.amt),sv=by('saving'),iv=by('invest'),rd=by('redeem'),sp=by('spend');
+function calc(){const T=S.tx,by=t=>sum(T.filter(x=>x.type==t),x=>x.amt),sv=by('saving'),iv=by('invest'),rd=by('redeem'),sp=by('spend'),eu=by('emuse');
 let pv=0;S.h.forEach(h=>{pv+=(h.v||0)+sum(T.filter(x=>x.hid==h.id&&x.date>(h.vd||'')),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0)});
-const cash=sv+rd-sp,cap=iv-rd,fund=cash+pv,per=n=>sum(T.filter(x=>x.person==n&&(x.type=='saving'||x.type=='invest')),x=>x.amt);
+const cash=sv+rd-sp-eu,cap=iv-rd,fund=cash+pv,per=n=>sum(T.filter(x=>x.person==n&&(x.type=='saving'||x.type=='invest')),x=>x.amt);
 const left=Math.max(0,S.target-fund),mo=Math.max(1,Math.ceil((new Date(S.tdate)-new Date(today()))/2629800000));
-return{cash,cap,pv,pl:pv-cap,fund,left,pct:Math.min(1,fund/S.target),F:per('Ferry'),D:per('Dini'),pm:left/mo}}
+const eIn=sum(T,x=>x.em||0),ef=n=>[sum(T.filter(x=>x.person==n),x=>x.em||0),sum(T.filter(x=>x.person==n&&x.type=='emuse'),x=>x.amt)];
+return{em:{bal:eIn-eu,F:ef('Ferry'),D:ef('Dini')},cash,cap,pv,pl:pv-cap,fund,left,pct:Math.min(1,fund/S.target),F:per('Ferry'),D:per('Dini'),pm:left/mo}}
 const I=n=>`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${{home:'<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',tx:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',inv:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',pro:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/>',plus:'<path d="M12 5v14M5 12h14"/>'}[n]}</svg>`;
 const NAV=[['home','Home'],['tx','Transactions'],['inv','Investments'],['pro','Profile']];
 const nb=n=>`<button class="nb${S.v==n[0]?' on':''}" onclick="go('${n[0]}')">${I(n[0])}${n[1]}</button>`;
-function row(x){const t=TY[x.type],h=S.h.find(h=>h.id==x.hid),sub=[fmt(x.date),x.person,h?h.plat:'',x.cat,x.note].filter(Boolean).join(' • ');
-return`<div class="tr"><div class="ic" style="background:${t[1]}">${t[2]}</div><div class="m"><b>${t[0]}${h?' – '+esc(h.name):''}</b><span class="mu">${esc(sub)}</span></div><b>${x.type=='spend'?'-':''}${rp(x.amt)}</b>${S.v=='tx'?`<button class="x" aria-label="Delete" onclick="del(${x.id})">×</button>`:''}</div>`}
+function row(x){const t=TY[x.type],h=S.h.find(h=>h.id==x.hid),sub=[fmt(x.date),x.person,h?h.plat:'',x.cat,x.em?rp(x.em)+' to emergency':'',x.note].filter(Boolean).join(' • ');
+return`<div class="tr"><div class="ic" style="background:${t[1]}">${t[2]}</div><div class="m"><b>${t[0]}${h?' – '+esc(h.name):''}</b><span class="mu">${esc(sub)}</span></div><b>${x.type=='spend'||x.type=='emuse'?'-':''}${rp(x.amt)}</b>${S.v=='tx'?`<button class="x" aria-label="Delete" onclick="del(${x.id})">×</button>`:''}</div>`}
 const recent=n=>[...S.tx].sort((a,b)=>b.date.localeCompare(a.date)||b.id-a.id).slice(0,n);
 const msg=p=>p>=1?'Target reached. Congratulations!':p>=.75?'Almost there, the finish line is close!':p>=.5?'Past halfway. Keep it up!':p>=.25?'You’re doing great, keep going!':'Great start. Little by little, we’ll get there.';
 const hv=h=>sum(S.tx.filter(x=>x.hid==h.id&&x.date>(h.vd||'')),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0)+(h.v||0);
@@ -150,7 +156,7 @@ if(!S.ok)return`<h1>Our Wedding Fund</h1><div class="c" style="margin-top:14px">
 const c=calc();
 if(S.v=='home')return`<div class="row sp"><div><h1>Hey Ferry &amp; Dini!</h1><p class="mu" style="margin:2px 0 0">${fmt(today())} • ${esc(S.st)}</p></div><button class="x" aria-label="Sync now" onclick="load()">↻</button></div>
 <div class="c pk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Our wedding fund</span><div class="big" data-n="${c.fund}">${rp(c.fund)}</div></div><div class="pct">${Math.round(c.pct*100)}%</div></div>
-<div class="bar"><i style="width:0" data-w="${c.pct*100}"></i></div><div class="row sp mu"><span>${rp(c.left)} to go of ${rp(S.target)}</span><span>by ${fmt(S.tdate)}</span></div>
+${segBar(c)}<div class="row sp mu"><span>${rp(c.left)} to go of ${rp(S.target)}</span><span>by ${fmt(S.tdate)}</span></div>
 <p style="margin:10px 0 0"><b>${msg(c.pct)}</b> <span class="mu">About ${rp(c.pm)} per month to reach the target.</span></p>
 <div class="ms">${[25,50,75,100].map(p=>`<span class="mb${c.pct*100>=p?' on':''}">${c.pct*100>=p?'✓ ':''}${p}%</span>`).join('')}<span class="mb" style="background:linear-gradient(135deg,var(--sky),var(--grn));color:#29243B">${Math.max(0,Math.ceil((new Date(S.tdate)-new Date(today()))/864e5))} days to go</span></div></div>
 <div class="g g3"><div class="c lv"><span class="mu">Invested capital</span><div class="big">${rp(c.cap)}</div></div>
@@ -158,7 +164,7 @@ if(S.v=='home')return`<div class="row sp"><div><h1>Hey Ferry &amp; Dini!</h1><p 
 <div class="c gr"><span class="mu">Cash savings</span><div class="big">${rp(c.cash)}</div></div></div>
 <div class="g g2"><div class="c cr"><div class="row"><div class="av">F</div><span class="mu">Ferry</span></div><div class="big bs" style="margin-top:8px">${rp(c.F)}</div><span class="mu">contributed</span></div>
 <div class="c cr"><div class="row"><div class="av d">D</div><span class="mu">Dini</span></div><div class="big bs" style="margin-top:8px">${rp(c.D)}</div><span class="mu">contributed</span></div></div>
-${charts(c)}<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
+${emCard(c)}${charts(c)}<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
 if(S.v=='tx'){const L=recent(999).filter(x=>(!S.fp||x.person==S.fp)&&(!S.ft||x.type==S.ft));
 return`<div class="row sp"><h1>Transactions</h1><button class="bt" onclick="openSh()">+ Add</button></div>
 <div class="g g2"><select onchange="S.fp=this.value;R()"><option value="">All contributors</option>${['Ferry','Dini'].map(p=>`<option${S.fp==p?' selected':''}>${p}</option>`)}</select>
@@ -169,7 +175,7 @@ if(S.v=='inv')return`<h1>Investments</h1><div class="c sk" style="margin-top:14p
 return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(CL[h.cat]||h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0;flex-wrap:wrap"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
 <div class="row"><input id="v${h.id}" type="number" inputmode="numeric" placeholder="New current value (Rp)"><button class="bt o" onclick="setV(${h.id})">Update</button></div></div>`}).join('')||'<div class="c"><p class="mu">No funds yet. Record an investment and choose “New mutual fund”.</p></div>'}</div>`;
 return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" style="margin-bottom:12px"><div class="av">F</div><b>Ferry</b><div class="av d" style="margin-left:16px">D</div><b>Dini</b></div>
-<h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label></div>
+<h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label><label>Emergency fund (% of each saving)<input type="number" min="0" max="50" value="${S.ep??5}" onchange="setT('ep',+this.value)"></label><label>Emergency cap per person (Rp/month, 0 = none)<input type="number" min="0" value="${S.ecap??100000}" onchange="setT('ecap',+this.value)"></label></div><p class="mu">Emergency settings apply to new transactions only.</p>
 <p class="mu">Currency IDR • Date format DD MMM YYYY • Timezone Asia/Makassar</p></div>
 <div class="c" style="margin-top:14px"><h2>This phone</h2><p class="mu">Connected to ${esc((cfg()||{}).repo||'')} • ${esc(S.st)}</p><div class="row" style="flex-wrap:wrap"><button class="bt o" onclick="load()">Sync now</button><button class="bt o" onclick="lockNow()">Lock now</button><button class="bt o" onclick="disconnect()">Disconnect</button></div></div>
 <div class="c" style="margin-top:14px"><h2>Shared setup</h2><p class="mu">Creates config.json so other phones connect with just the PIN. Upload it to the wedding-app repo.</p><button class="bt o" onclick="makeShared()">Create shared setup file</button></div>`}
@@ -178,7 +184,7 @@ const K=v=>v>=1e6?+(v/1e6).toFixed(1)+'jt':v>=1e3?Math.round(v/1e3)+'rb':String(
 const GR=['linear-gradient(90deg,#ED3D83,#A477F5)','linear-gradient(90deg,#A477F5,#70C8E8)','linear-gradient(90deg,#70C8E8,#9AD76C)','linear-gradient(90deg,#9AD76C,#FFC857)','linear-gradient(90deg,#FF9A8B,#ED3D83)'];
 const hb=a=>{const t=sum(a,x=>x[1])||1,m=Math.max(...a.map(x=>x[1]),1);return a.map((x,i)=>`<div class="hb"><div class="row sp"><span>${esc(x[0])}</span><b>${rp(x[1])} <span class="mu">${Math.round(x[1]/t*100)}%</span></b></div><div class="tk"><i style="width:${Math.max(3,x[1]/m*100)}%;background:${GR[i%5]}"></i></div></div>`).join('')};
 function gChart(c){const W=340,H=180,pl=40,pr=12,pt=14,pb=24,td=d=>Date.parse(d+'T00:00:00Z'),nw=td(today());
-const T=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id);let r=0;const P=T.map(x=>{r+=x.type=='saving'||x.type=='invest'?x.amt:x.type=='spend'?-x.amt:0;return[td(x.date),r]});
+const T=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id);let r=0;const P=T.map(x=>{r+=x.type=='saving'||x.type=='invest'?x.amt:x.type=='spend'||x.type=='emuse'?-x.amt:0;return[td(x.date),r]});
 const t0=P.length?P[0][0]:nw,pts=[[t0,0],...P,[nw,c.fund]].sort((a,b)=>a[0]-b[0]),t1=Math.max(td(S.tdate),nw+2592e6),mx=Math.max(S.target,...pts.map(p=>p[1]))*1.08;
 const X=t=>pl+(t-t0)/((t1-t0)||1)*(W-pl-pr),Y=v=>pt+(1-Math.max(0,v)/mx)*(H-pt-pb),L=pts.map((p,i)=>(i?'L':'M')+f1(X(p[0]))+' '+f1(Y(p[1]))).join(' '),e=pts[pts.length-1],b=Y(0),ex=X(e[0]),ey=Y(e[1]),dl=t=>{const d=new Date(t).toISOString().slice(0,10);return MN[+d.slice(5,7)-1]+' '+d.slice(2,4)};
 return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Savings growth chart"><defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ED3D83" stop-opacity=".45"/><stop offset="1" stop-color="#A477F5" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" x2="1"><stop offset="0" stop-color="#A477F5"/><stop offset="1" stop-color="#ED3D83"/></linearGradient></defs>
@@ -194,6 +200,12 @@ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Savings
 ${v.map((a,i)=>{const x=pl+i*(bw+gap),t=a[0]+a[1],cx=f1(x+bw/2);return(t?`<rect x="${f1(x)}" y="${f1(Y(t))}" width="${bw}" height="${f1(H-pb-Y(t))}" rx="9" fill="url(#bD)"/>`+(a[0]?`<rect x="${f1(x)}" y="${f1(Y(a[0]))}" width="${bw}" height="${f1(H-pb-Y(a[0]))}" rx="9" fill="url(#bF)"/>`:'')+`<text class="ax" x="${cx}" y="${f1(Y(t)-5)}" text-anchor="middle">${K(t)}</text>`:`<rect x="${f1(x)}" y="${H-pb-4}" width="${bw}" height="4" rx="2" class="ex"/>`)+`<text class="ax" x="${cx}" y="${H-6}" text-anchor="middle">${MN[+ms[i].slice(5)-1]}</text>`}).join('')}</svg>`}
 function dChart(c){const t=c.F+c.D,f=t?c.F/t:0,d=t?c.D/t:0,R=42,C=2*Math.PI*R;
 return `<svg viewBox="0 0 120 120" width="130" height="130" role="img" aria-label="Who contributed"><defs><linearGradient id="dF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A477F5"/><stop offset="1" stop-color="#70C8E8"/></linearGradient><linearGradient id="dD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ED3D83"/><stop offset="1" stop-color="#FF9A8B"/></linearGradient></defs><g transform="rotate(-90 60 60)" fill="none" stroke-width="16"><circle cx="60" cy="60" r="${R}" class="gl" style="stroke-width:16"/>${f?`<circle cx="60" cy="60" r="${R}" stroke="url(#dF)" stroke-dasharray="${f1(f*C)} ${f1(C)}"/>`:''}${d?`<circle cx="60" cy="60" r="${R}" stroke="url(#dD)" stroke-dasharray="${f1(d*C)} ${f1(C)}" stroke-dashoffset="${f1(-f*C)}"/>`:''}</g><text x="60" y="57" text-anchor="middle" class="ax">saved</text><text x="60" y="74" text-anchor="middle" style="font:800 15px 'Plus Jakarta Sans',sans-serif;fill:var(--tx)">${K(t)}</text></svg>`}
+function segBar(c){const e=Math.max(0,Math.min(c.em.bal,c.fund)),rest=Math.max(0,c.fund-e),inv=Math.min(c.pv,rest),cs=rest-inv,base=Math.max(S.target,c.fund,1);
+const sg=[['Savings',cs,'linear-gradient(90deg,#ED3D83,#FF7EB3)'],['Investments',inv,'linear-gradient(90deg,#A477F5,#70C8E8)'],['Emergency',e,'linear-gradient(90deg,#FFB84D,#FF8A4C)']];
+return `<div class="seg" role="img" aria-label="Fund split">${sg.filter(x=>x[1]>0).map(x=>`<i style="width:0;background:${x[2]}" data-w="${x[1]/base*100}"></i>`).join('')}</div><div class="lgd">${sg.map(x=>`<span><i style="background:${x[2]}"></i>${x[0]} <b>${rp(x[1])}</b></span>`).join('')}</div>`}
+const emCard=c=>{const e=c.em,p=S.ep??5,cp=S.ecap??0;return `<div class="c em" style="margin-top:14px"><div class="row sp"><div><span class="mu">Emergency fund • ${p}% of each saving${cp>0?', max '+rp(cp)+' per person a month':''}</span><div class="big">${rp(e.bal)}</div></div><button class="bt o" onclick="openSh('emuse')">Use</button></div>
+<div class="g g2" style="margin-top:10px">${[['Ferry',e.F],['Dini',e.D]].map(([n,a])=>`<div><b>${n}</b><div class="mu">put in ${rp(a[0])}</div>${a[1]?`<div class="mu">used ${rp(a[1])}${a[1]>a[0]?' (more than their share)':''}</div>`:''}</div>`).join('')}</div>
+<p class="mu" style="margin:8px 0 0">Still counts toward the wedding target. Either of you can use it, and every use is recorded with a reason.</p></div>`};
 function charts(c){const al=[];if(c.cash>0)al.push(['Cash savings',c.cash]);const g={};S.h.forEach(h=>{const k=CL[h.cat]||h.cat;g[k]=(g[k]||0)+hv(h)});Object.entries(g).forEach(([k,v])=>{if(v>0)al.push([k,v])});
 const sp={};S.tx.filter(x=>x.type=='spend').forEach(x=>{const k=x.cat||'Other';sp[k]=(sp[k]||0)+x.amt});const sa=Object.entries(sp),t=c.F+c.D||1;
 return `<h3>Our progress in charts</h3><div class="g2c"><div class="c gx" style="grid-column:1/-1"><b>Road to the wedding</b><p class="mu" style="margin:2px 0 6px">The solid line is what you’ve saved. The dashed line is the way to the target.</p>${gChart(c)}</div>
@@ -208,7 +220,7 @@ function go(v){S.v=v;R();scrollTo(0,0)}
 function toast(t){const e=$('ts');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',2600)}
 async function del(id){if(confirm('Delete this transaction? This cannot be undone.')&&await mutate(()=>{S.tx=S.tx.filter(x=>x.id!=id)},'Delete transaction'))toast('Deleted')}
 async function setV(id){const n=+$('v'+id).value;if(!(n>0))return toast('Enter a value in rupiah');if(await mutate(()=>{const h=S.h.find(h=>h.id==id);if(h){h.v=n;h.vd=today()}},'Update fund value'))toast('Value updated')}
-async function setT(k,v){if(!v)return;await mutate(()=>{S[k]=v},'Update target')}
+async function setT(k,v){if(v===''||v==null||v!==v||(k=='target'&&!(v>0)))return;if(k=='ep')v=Math.min(50,Math.max(0,Math.round(v)));if(k=='ecap')v=Math.max(0,Math.round(v));await mutate(()=>{S[k]=v},'Update target')}
 /* ---------- Entry: quick text + structured form ---------- */
 let E={},bad=[],busy=false;
 const blank=()=>({date:today(),person:LS('wf_me')||'',type:'',amt:0,hid:'',plat:'',cat:'',fund:'',sc:'',note:''});
@@ -221,7 +233,7 @@ if(m=s.match(/(\d+(?:[.,]\d+)?)\s*(rb|ribu|jt|juta|k)\b/)){e.amt=Math.round(pars
 else if(m=s.match(/rp\.?\s*([\d.,]+)/)){e.amt=parseInt(m[1].replace(/[.,]/g,''))||0;s=s.replace(m[0],' ')}
 else if(m=s.match(/\b(\d{1,3}(?:[.,]\d{3})+|\d{4,})\b/)){e.amt=parseInt(m[1].replace(/[.,]/g,''));s=s.replace(m[0],' ')}
 const f=s.indexOf('ferry'),d=s.indexOf('dini');e.person=f>=0&&(d<0||f<d)?'Ferry':d>=0?'Dini':e.person;
-e.type=/jual|cairkan|tarik|redeem/.test(s)?'redeem':/investasi|invest|beli|top ?up/.test(s)?'invest':/bayar|\bdp\b|pelunasan|belanja|pakai/.test(s)?'spend':/nabung|tabung|setor|nambah/.test(s)?'saving':'';
+e.type=/darurat|emergency/.test(s)?'emuse':/jual|cairkan|tarik|redeem/.test(s)?'redeem':/investasi|invest|beli|top ?up/.test(s)?'invest':/bayar|\bdp\b|pelunasan|belanja|pakai/.test(s)?'spend':/nabung|tabung|setor|nambah/.test(s)?'saving':'';
 if(m=s.match(/bibit|bareksa|ajaib|jago|bni|bca|mandiri/))e.plat=m[0][0].toUpperCase()+m[0].slice(1);
 e.cat=/pasar uang|rdpu/.test(s)?'RDPU':/pendapatan tetap|obligasi|rdpt/.test(s)?'RDPT':/saham|\brds\b/.test(s)?'RDS':/campuran|rdc/.test(s)?'RDC':'';
 e.sc=/katering|catering/.test(s)?'Catering':/gedung|venue/.test(s)?'Venue':/dekor/.test(s)?'Decor':/baju|busana|gaun|jas/.test(s)?'Attire':/foto|video/.test(s)?'Photo/Video':/undangan/.test(s)?'Invitation':e.type=='spend'?'Other':'';
@@ -229,8 +241,8 @@ if(e.type=='invest'||e.type=='redeem'){const C=S.h.filter(h=>(!e.plat||h.plat.to
 if(C.length==1)e.hid=String(C[0].id);else if(e.type=='invest'&&!C.length&&(e.plat||e.cat)){e.hid='new';e.fund=e.cat?'Reksa Dana '+CL[e.cat].split(' · ')[1]:''}}
 return e}
 const miss=()=>{const b=[];if(!E.date)b.push('date');if(!E.person)b.push('person');if(!E.type)b.push('type');if(!(E.amt>0))b.push('amt');
-if(E.type=='invest'||E.type=='redeem'){if(!E.hid)b.push('fund');else if(E.hid=='new'&&!E.fund.trim())b.push('fund')}return b};
-const LBL={date:'date',person:'who',type:'type',amt:'amount',fund:'mutual fund'};
+if(E.type=='invest'||E.type=='redeem'){if(!E.hid)b.push('fund');else if(E.hid=='new'&&!E.fund.trim())b.push('fund')}if(E.type=='emuse'&&!E.note.trim())b.push('note');return b};
+const LBL={date:'date',person:'who',type:'type',amt:'amount',fund:'mutual fund',note:'reason'};
 const opt=(a,v)=>a.map(x=>`<option value="${x}"${x==v?' selected':''}>${x||'Choose…'}</option>`).join('');
 function pick(k,v){try{E[k]=v;if(k=='type'&&E.hid=='new'&&v!='invest')E.hid='';renderForm()}catch(e){toast('Error: '+e.message)}}
 document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('[data-k]');if(c)pick(c.dataset.k,c.dataset.v)});
@@ -245,19 +257,24 @@ ${E.hid=='new'?`<div class="fg"><label class="w">Fund name<input class="${b('fun
 ${E.type=='spend'?`<div class="fl">Spent on</div>${ch('sc',SPC.map(c=>[c,c]),E.sc)}`:''}
 <div class="fl">Who</div>${ch('person',[['Ferry','Ferry'],['Dini','Dini']],E.person)}
 <div class="fl">Amount</div><input id="am" inputmode="numeric" class="${b('amt').trim()}" placeholder="Rp 0" value="${E.amt?E.amt.toLocaleString('id-ID'):''}" oninput="amt(this)">
-<div class="chips q" style="margin-top:8px">${[[1e5,'100rb'],[5e5,'500rb'],[1e6,'1jt'],[5e6,'5jt']].map(x=>`<button type="button" class="chip" onclick="addA(${x[0]})">+${x[1]}</button>`).join('')}<button type="button" class="chip" onclick="E.amt=0;$('am').value=''">Clear</button></div>
-<div class="fg"><label>Date<input type="date" class="${b('date').trim()}" value="${E.date}" oninput="E.date=this.value"></label><label>Notes (optional)<input value="${esc(E.note)}" oninput="E.note=this.value" placeholder="e.g. DP katering"></label></div>`}
-function amt(el){E.amt=+el.value.replace(/\D/g,'')||0;el.value=E.amt?E.amt.toLocaleString('id-ID'):''}
-function addA(n){E.amt+=n;$('am').value=E.amt.toLocaleString('id-ID')}
-function openSh(){E=blank();bad=[];$('sm').value='';$('msg').style.display='none';renderForm();$('ov').classList.add('on')}
+<div class="chips q" style="margin-top:8px">${[[1e5,'100rb'],[5e5,'500rb'],[1e6,'1jt'],[5e6,'5jt']].map(x=>`<button type="button" class="chip" onclick="addA(${x[0]})">+${x[1]}</button>`).join('')}<button type="button" class="chip" onclick="E.amt=0;$('am').value='';updEm()">Clear</button></div><p class="mu" id="emh" style="margin:8px 0 0">${emTxt()}</p>
+<div class="fg"><label>Date<input type="date" class="${b('date').trim()}" value="${E.date}" oninput="E.date=this.value;updEm()"></label><label>${E.type=='emuse'?'Reason':'Notes (optional)'}<input class="${b('note').trim()}" value="${esc(E.note)}" oninput="E.note=this.value" placeholder="${E.type=='emuse'?'e.g. biaya berobat':'e.g. DP katering'}"></label></div>`}
+const emTxt=()=>{const p=S.ep??5,cp=S.ecap??0;if(E.type=='emuse')return 'Emergency fund balance: '+rp(calc().em.bal);if(!(E.type=='saving'||E.type=='invest')||!(p>0)||!(E.amt>0))return '';
+const full=Math.round(E.amt*p/100),e=E.person?emFor(E.person,E.date||today(),E.amt):full;
+return e<=0?'This month’s emergency limit ('+rp(cp)+' each) is reached, so nothing more goes to the emergency fund.':rp(e)+' of this goes to the emergency fund'+(e<full?' (monthly limit '+rp(cp)+' reached).':' ('+p+'%).')};
+function updEm(){const e=$('emh');if(e)e.textContent=emTxt()}
+function amt(el){E.amt=+el.value.replace(/\D/g,'')||0;el.value=E.amt?E.amt.toLocaleString('id-ID'):'';updEm()}
+function addA(n){E.amt+=n;$('am').value=E.amt.toLocaleString('id-ID');updEm()}
+function openSh(t){E=blank();if(t)E.type=t;bad=[];$('sm').value='';$('msg').style.display='none';renderForm();$('ov').classList.add('on')}
 function closeSh(){$('ov').classList.remove('on')}
 function readIt(){const t=$('sm').value.trim();if(!t)return;E=parse(t);bad=miss();renderForm();const m=$('msg');m.style.display='block';
 m.textContent=bad.length?'I couldn’t find: '+bad.map(k=>LBL[k]).join(', ')+'. Please fill it in below. Nothing is saved yet.':'Check the details below. Nothing is saved until you confirm.'}
 async function save(){if(busy)return;bad=miss();if(bad.length){renderForm();const m=$('msg');m.style.display='block';m.textContent='Please complete: '+bad.map(k=>LBL[k]).join(', ')+'.';return}
+if(E.type=='emuse'){const bl=calc().em.bal;if(E.amt>bl){bad=['amt'];renderForm();const m=$('msg');m.style.display='block';m.textContent='Only '+rp(bl)+' is left in the emergency fund.';return}}
 busy=true;$('cf').disabled=true;$('cf').textContent='Saving…';LS('wf_me',E.person);const e={...E};
 const ok=await mutate(()=>{let hid=0;if(e.type=='invest'||e.type=='redeem'){if(e.hid=='new'){const n=e.fund.trim(),p=e.plat.trim()||'—';let h=S.h.find(h=>h.name.toLowerCase()==n.toLowerCase()&&h.plat.toLowerCase()==p.toLowerCase());
 if(!h){h={id:Date.now(),name:n,plat:p,cat:e.cat||'Other',v:0,vd:''};S.h.push(h)}hid=h.id}else hid=+e.hid}
-S.tx.push({id:Date.now(),date:e.date,person:e.person,type:e.type,amt:e.amt,hid,cat:e.type=='spend'?e.sc:'',note:e.note.trim()})},'Add '+e.type+' '+e.amt);
+S.tx.push({id:Date.now(),date:e.date,person:e.person,type:e.type,amt:e.amt,hid,cat:e.type=='spend'?e.sc:'',em:(e.type=='saving'||e.type=='invest')?emFor(e.person,e.date,e.amt):0,note:e.note.trim()})},'Add '+e.type+' '+e.amt);
 busy=false;$('cf').disabled=false;$('cf').textContent='Confirm transaction';if(ok){closeSh();toast('Transaction saved')}}
 R();
 </script></body></html>
