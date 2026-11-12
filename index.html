@@ -16,9 +16,9 @@ h1{font-size:26px;margin:0}h2{margin:0 0 12px;font-size:20px}h3{margin:22px 0 10
 .mu{color:var(--mu);font-size:13px}
 .c{border-radius:26px;padding:18px;background:var(--card);box-shadow:0 8px 24px rgba(41,36,59,.07)}
 .pk{background:var(--pinkS)}.lv{background:var(--lavS)}.sk{background:var(--skyS)}.gr{background:var(--grnS)}.cr{background:var(--cream)}
-.big{font-size:27px;font-weight:800;letter-spacing:-.5px}.pct{font-size:34px;font-weight:800;color:var(--pink)}
+.big{font-size:27px;font-weight:800;letter-spacing:-.5px}.pct{font-size:34px;font-weight:800;color:var(--pink);background:linear-gradient(135deg,var(--pink),var(--lav));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .g{display:grid;gap:14px;grid-template-columns:1fr;margin-top:14px}.g2{grid-template-columns:1fr 1fr}
-.bar{height:13px;border-radius:9px;background:var(--bar);margin:10px 0 6px;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:var(--pink);transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.bar{height:13px;border-radius:9px;background:var(--bar);margin:10px 0 6px;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--pink),var(--lav));transition:width 1s cubic-bezier(.2,.8,.2,1)}
 .up{color:#3b9a2a;font-weight:700}.dn{color:#d0245f;font-weight:700}
 .row{display:flex;gap:10px;align-items:center}.sp{justify-content:space-between}
 .tr{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--ln)}.tr:last-child{border:0}
@@ -45,6 +45,13 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 .chip.on{background:var(--pinkS);border-color:var(--pink);color:var(--pink)}.chips.q .chip{font-size:13px;padding:7px 12px;min-height:36px;color:var(--mu)}
 
 .chip small{display:block;font-weight:500;font-size:11px;color:var(--mu);margin-top:1px}.chip.on small{color:var(--pink)}
+
+.g2c{display:grid;gap:14px;grid-template-columns:1fr}@media(min-width:860px){.g2c{grid-template-columns:1fr 1fr}}
+.c.gx{background:linear-gradient(135deg,var(--pinkS),var(--lavS) 55%,var(--skyS))}
+.ax{fill:var(--mu);font:600 10px 'Plus Jakarta Sans',sans-serif}.gl{stroke:var(--ln);stroke-width:1;fill:none}.ex{fill:var(--ln)}
+.lg{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+.hb{margin:12px 0 0}.hb .row{font-size:13px;margin-bottom:5px}.tk{height:13px;border-radius:9px;background:var(--bar);overflow:hidden}.tk i{display:block;height:100%;border-radius:9px}
+.ms{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.mb{padding:5px 12px;border-radius:99px;background:var(--bar);font-size:12px;font-weight:700;color:var(--mu)}.mb.on{background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff}
 #msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
 #lk{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 12% 8%,var(--pinkS),transparent 48%),radial-gradient(circle at 92% 90%,var(--lavS),transparent 52%),radial-gradient(circle at 85% 12%,var(--skyS),transparent 32%),var(--bg);transition:opacity .4s,transform .4s}
@@ -71,7 +78,7 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 <div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
 <div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
 <div id="app"></div>
-<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v4</p></div></div>
+<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div><p class="mu" style="margin-top:18px;font-size:11px">v5</p></div></div>
 <div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
 <div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
 <div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
@@ -143,13 +150,14 @@ const c=calc();
 if(S.v=='home')return`<div class="row sp"><div><h1>Hey Ferry &amp; Dini!</h1><p class="mu" style="margin:2px 0 0">${fmt(today())} • ${esc(S.st)}</p></div><button class="x" aria-label="Sync now" onclick="load()">↻</button></div>
 <div class="c pk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Our wedding fund</span><div class="big" data-n="${c.fund}">${rp(c.fund)}</div></div><div class="pct">${Math.round(c.pct*100)}%</div></div>
 <div class="bar"><i style="width:0" data-w="${c.pct*100}"></i></div><div class="row sp mu"><span>${rp(c.left)} to go of ${rp(S.target)}</span><span>by ${fmt(S.tdate)}</span></div>
-<p style="margin:10px 0 0"><b>${msg(c.pct)}</b> <span class="mu">About ${rp(c.pm)} per month to reach the target.</span></p></div>
+<p style="margin:10px 0 0"><b>${msg(c.pct)}</b> <span class="mu">About ${rp(c.pm)} per month to reach the target.</span></p>
+<div class="ms">${[25,50,75,100].map(p=>`<span class="mb${c.pct*100>=p?' on':''}">${c.pct*100>=p?'✓ ':''}${p}%</span>`).join('')}<span class="mb" style="background:linear-gradient(135deg,var(--sky),var(--grn));color:#29243B">${Math.max(0,Math.ceil((new Date(S.tdate)-new Date(today()))/864e5))} days to go</span></div></div>
 <div class="g g3"><div class="c lv"><span class="mu">Invested capital</span><div class="big">${rp(c.cap)}</div></div>
 <div class="c sk"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div>
 <div class="c gr"><span class="mu">Cash savings</span><div class="big">${rp(c.cash)}</div></div></div>
 <div class="g g2"><div class="c cr"><div class="row"><div class="av">F</div><div><span class="mu">Ferry contributed</span><div class="big" style="font-size:20px">${rp(c.F)}</div></div></div></div>
 <div class="c cr"><div class="row"><div class="av d">D</div><div><span class="mu">Dini contributed</span><div class="big" style="font-size:20px">${rp(c.D)}</div></div></div></div></div>
-<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
+${charts(c)}<h3>Recent transactions</h3><div class="c">${recent(5).map(row).join('')||'<p class="mu">Nothing yet. Tap + to add your first saving.</p>'}</div>`;
 if(S.v=='tx'){const L=recent(999).filter(x=>(!S.fp||x.person==S.fp)&&(!S.ft||x.type==S.ft));
 return`<div class="row sp"><h1>Transactions</h1><button class="bt" onclick="openSh()">+ Add</button></div>
 <div class="g g2"><select onchange="S.fp=this.value;R()"><option value="">All contributors</option>${['Ferry','Dini'].map(p=>`<option${S.fp==p?' selected':''}>${p}</option>`)}</select>
@@ -164,6 +172,33 @@ return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" s
 <p class="mu">Currency IDR • Date format DD MMM YYYY • Timezone Asia/Makassar</p></div>
 <div class="c" style="margin-top:14px"><h2>This phone</h2><p class="mu">Connected to ${esc((cfg()||{}).repo||'')} • ${esc(S.st)}</p><div class="row" style="flex-wrap:wrap"><button class="bt o" onclick="load()">Sync now</button><button class="bt o" onclick="lockNow()">Lock now</button><button class="bt o" onclick="disconnect()">Disconnect</button></div></div>
 <div class="c" style="margin-top:14px"><h2>Shared setup</h2><p class="mu">Creates config.json so other phones connect with just the PIN. Upload it to the wedding-app repo.</p><button class="bt o" onclick="makeShared()">Create shared setup file</button></div>`}
+/* ---------- charts (inline SVG, gradient style) ---------- */
+const K=v=>v>=1e6?+(v/1e6).toFixed(1)+'jt':v>=1e3?Math.round(v/1e3)+'rb':String(Math.round(v)),f1=n=>(+n).toFixed(1);
+const GR=['linear-gradient(90deg,#ED3D83,#A477F5)','linear-gradient(90deg,#A477F5,#70C8E8)','linear-gradient(90deg,#70C8E8,#9AD76C)','linear-gradient(90deg,#9AD76C,#FFC857)','linear-gradient(90deg,#FF9A8B,#ED3D83)'];
+const hb=a=>{const t=sum(a,x=>x[1])||1,m=Math.max(...a.map(x=>x[1]),1);return a.map((x,i)=>`<div class="hb"><div class="row sp"><span>${esc(x[0])}</span><b>${rp(x[1])} <span class="mu">${Math.round(x[1]/t*100)}%</span></b></div><div class="tk"><i style="width:${Math.max(3,x[1]/m*100)}%;background:${GR[i%5]}"></i></div></div>`).join('')};
+function gChart(c){const W=340,H=180,pl=40,pr=12,pt=14,pb=24,td=d=>Date.parse(d+'T00:00:00Z'),nw=td(today());
+const T=[...S.tx].sort((a,b)=>a.date.localeCompare(b.date)||a.id-b.id);let r=0;const P=T.map(x=>{r+=x.type=='saving'||x.type=='invest'?x.amt:x.type=='spend'?-x.amt:0;return[td(x.date),r]});
+const t0=P.length?P[0][0]:nw,pts=[[t0,0],...P,[nw,c.fund]].sort((a,b)=>a[0]-b[0]),t1=Math.max(td(S.tdate),nw+2592e6),mx=Math.max(S.target,...pts.map(p=>p[1]))*1.08;
+const X=t=>pl+(t-t0)/((t1-t0)||1)*(W-pl-pr),Y=v=>pt+(1-Math.max(0,v)/mx)*(H-pt-pb),L=pts.map((p,i)=>(i?'L':'M')+f1(X(p[0]))+' '+f1(Y(p[1]))).join(' '),e=pts[pts.length-1],b=Y(0),ex=X(e[0]),ey=Y(e[1]),dl=t=>{const d=new Date(t).toISOString().slice(0,10);return MN[+d.slice(5,7)-1]+' '+d.slice(2,4)};
+return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Savings growth chart"><defs><linearGradient id="gA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ED3D83" stop-opacity=".45"/><stop offset="1" stop-color="#A477F5" stop-opacity="0"/></linearGradient><linearGradient id="gL" x1="0" x2="1"><stop offset="0" stop-color="#A477F5"/><stop offset="1" stop-color="#ED3D83"/></linearGradient></defs>
+${[0,.5,1].map(k=>`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${f1(Y(S.target*k))}" y2="${f1(Y(S.target*k))}"/><text class="ax" x="${pl-6}" y="${f1(Y(S.target*k)+3)}" text-anchor="end">${K(S.target*k)}</text>`).join('')}
+<path d="${L} L${f1(ex)} ${f1(b)} L${f1(X(pts[0][0]))} ${f1(b)}Z" fill="url(#gA)"/><path d="${L}" fill="none" stroke="url(#gL)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M${f1(ex)} ${f1(ey)} L${f1(X(t1))} ${f1(Y(S.target))}" stroke="url(#gL)" stroke-width="2" stroke-dasharray="4 5" fill="none" opacity=".7"/>
+<circle cx="${f1(ex)}" cy="${f1(ey)}" r="9" fill="#ED3D83" opacity=".2"/><circle cx="${f1(ex)}" cy="${f1(ey)}" r="4.5" fill="#fff" stroke="#ED3D83" stroke-width="2.5"/><circle cx="${f1(X(t1))}" cy="${f1(Y(S.target))}" r="5" fill="#9AD76C"/>
+<text class="ax" x="${pl}" y="${H-6}">${dl(t0)}</text><text class="ax" x="${W-pr}" y="${H-6}" text-anchor="end">${dl(t1)}</text></svg>`}
+function mChart(){const n=today(),y=+n.slice(0,4),m=+n.slice(5,7),ms=[];for(let i=5;i>=0;i--){let mm=m-i,yy=y;if(mm<1){mm+=12;yy--}ms.push(yy+'-'+p2(mm))}
+const v=ms.map(k=>[ 'Ferry','Dini'].map(p=>sum(S.tx.filter(x=>x.date.slice(0,7)==k&&x.person==p&&(x.type=='saving'||x.type=='invest')),x=>x.amt)));
+const W=340,H=170,pl=6,pb=22,pt=18,bw=34,gap=(W-pl*2-bw*6)/5,mx=Math.max(1,...v.map(a=>a[0]+a[1])),Y=q=>H-pb-q/mx*(H-pb-pt);
+return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Savings per month"><defs><linearGradient id="bF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A477F5"/><stop offset="1" stop-color="#70C8E8"/></linearGradient><linearGradient id="bD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ED3D83"/><stop offset="1" stop-color="#FF9A8B"/></linearGradient></defs>
+${v.map((a,i)=>{const x=pl+i*(bw+gap),t=a[0]+a[1],cx=f1(x+bw/2);return(t?`<rect x="${f1(x)}" y="${f1(Y(t))}" width="${bw}" height="${f1(H-pb-Y(t))}" rx="9" fill="url(#bD)"/>`+(a[0]?`<rect x="${f1(x)}" y="${f1(Y(a[0]))}" width="${bw}" height="${f1(H-pb-Y(a[0]))}" rx="9" fill="url(#bF)"/>`:'')+`<text class="ax" x="${cx}" y="${f1(Y(t)-5)}" text-anchor="middle">${K(t)}</text>`:`<rect x="${f1(x)}" y="${H-pb-4}" width="${bw}" height="4" rx="2" class="ex"/>`)+`<text class="ax" x="${cx}" y="${H-6}" text-anchor="middle">${MN[+ms[i].slice(5)-1]}</text>`}).join('')}</svg>`}
+function dChart(c){const t=c.F+c.D,f=t?c.F/t:0,d=t?c.D/t:0,R=42,C=2*Math.PI*R;
+return `<svg viewBox="0 0 120 120" width="130" height="130" role="img" aria-label="Who contributed"><defs><linearGradient id="dF" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A477F5"/><stop offset="1" stop-color="#70C8E8"/></linearGradient><linearGradient id="dD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ED3D83"/><stop offset="1" stop-color="#FF9A8B"/></linearGradient></defs><g transform="rotate(-90 60 60)" fill="none" stroke-width="16"><circle cx="60" cy="60" r="${R}" class="gl" style="stroke-width:16"/>${f?`<circle cx="60" cy="60" r="${R}" stroke="url(#dF)" stroke-dasharray="${f1(f*C)} ${f1(C)}"/>`:''}${d?`<circle cx="60" cy="60" r="${R}" stroke="url(#dD)" stroke-dasharray="${f1(d*C)} ${f1(C)}" stroke-dashoffset="${f1(-f*C)}"/>`:''}</g><text x="60" y="57" text-anchor="middle" class="ax">saved</text><text x="60" y="74" text-anchor="middle" style="font:800 15px 'Plus Jakarta Sans',sans-serif;fill:var(--tx)">${K(t)}</text></svg>`}
+function charts(c){const al=[];if(c.cash>0)al.push(['Cash savings',c.cash]);const g={};S.h.forEach(h=>{const k=CL[h.cat]||h.cat;g[k]=(g[k]||0)+hv(h)});Object.entries(g).forEach(([k,v])=>{if(v>0)al.push([k,v])});
+const sp={};S.tx.filter(x=>x.type=='spend').forEach(x=>{const k=x.cat||'Other';sp[k]=(sp[k]||0)+x.amt});const sa=Object.entries(sp),t=c.F+c.D||1;
+return `<h3>Our progress in charts</h3><div class="g2c"><div class="c gx" style="grid-column:1/-1"><b>Road to the wedding</b><p class="mu" style="margin:2px 0 6px">The solid line is what you’ve saved. The dashed line is the way to the target.</p>${gChart(c)}</div>
+<div class="c"><b>Savings each month</b><div class="row mu" style="gap:14px;margin:4px 0"><span><i class="lg" style="background:linear-gradient(135deg,#A477F5,#70C8E8)"></i>Ferry</span><span><i class="lg" style="background:linear-gradient(135deg,#ED3D83,#FF9A8B)"></i>Dini</span></div>${mChart()}</div>
+<div class="c"><b>Who’s saving</b><div class="row" style="gap:16px;margin-top:8px">${dChart(c)}<div><div><i class="lg" style="background:linear-gradient(135deg,#A477F5,#70C8E8)"></i><b>Ferry ${Math.round(c.F/t*100)}%</b><div class="mu">${rp(c.F)}</div></div><div style="margin-top:10px"><i class="lg" style="background:linear-gradient(135deg,#ED3D83,#FF9A8B)"></i><b>Dini ${Math.round(c.D/t*100)}%</b><div class="mu">${rp(c.D)}</div></div></div></div></div>
+<div class="c lv"><b>Where the fund sits</b>${al.length?hb(al):'<p class="mu">Add savings or an investment to see this.</p>'}</div>${sa.length?`<div class="c cr"><b>Where the money went</b>${hb(sa)}</div>`:''}</div>`}
 function R(){$('app').innerHTML=`<aside><div class="logo">Our<br><span>Wedding</span><br>Fund</div>${NAV.map(nb).join('')}<button class="bt" style="width:100%;margin-top:18px" onclick="openSh()">Add transaction</button></aside>
 <main>${view()}</main>${S.v=='setup'?'':`<nav class="bot">${nb(NAV[0])}${nb(NAV[1])}<button class="fab" aria-label="Add transaction" onclick="openSh()">${I('plus')}</button>${nb(NAV[2])}${nb(NAV[3])}</nav>`}`;
 document.querySelectorAll('[data-n]').forEach(e=>{const n=+e.dataset.n,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/800);e.textContent=rp(n*p);if(p<1)requestAnimationFrame(f)})(t0)});
