@@ -43,6 +43,8 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 .chips{display:flex;flex-wrap:wrap;gap:8px;border-radius:16px}.chips.bad{outline:1.5px solid var(--pink);outline-offset:4px}
 .chip{font:inherit;font-weight:700;font-size:14px;color:var(--tx);background:var(--bg);border:1.5px solid var(--ln);border-radius:99px;padding:9px 15px;min-height:42px;cursor:pointer}
 .chip.on{background:var(--pinkS);border-color:var(--pink);color:var(--pink)}.chips.q .chip{font-size:13px;padding:7px 12px;min-height:36px;color:var(--mu)}
+
+.chip small{display:block;font-weight:500;font-size:11px;color:var(--mu);margin-top:1px}.chip.on small{color:var(--pink)}
 #msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
 #lk{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 12% 8%,var(--pinkS),transparent 48%),radial-gradient(circle at 92% 90%,var(--lavS),transparent 52%),radial-gradient(circle at 85% 12%,var(--skyS),transparent 32%),var(--bg);transition:opacity .4s,transform .4s}
@@ -84,7 +86,7 @@ const fmt=d=>d?`${d.slice(8)} ${MN[+d.slice(5,7)-1]} ${d.slice(0,4)}`:'';
 const rp=n=>(n<0?'-':'')+'Rp'+Math.round(Math.abs(n)).toLocaleString('id-ID');
 const sum=(a,f)=>a.reduce((s,x)=>s+f(x),0),LS=(k,v)=>{try{return v===undefined?localStorage.getItem(k):v===null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}};
 const TY={saving:['Savings','var(--grnS)','+'],invest:['Investment','var(--lavS)','↗'],redeem:['Redemption','var(--skyS)','↙'],spend:['Wedding spend','var(--pinkS)','−']};
-const SPC=['Venue','Catering','Decor','Attire','Photo/Video','Invitation','Other'],CATS=['Money Market','Fixed Income','Equity','Balanced','Other'],PL=['Bibit','Bareksa','Ajaib','Jago','Bank'];
+const SPC=['Venue','Catering','Decor','Attire','Photo/Video','Invitation','Other'],CATS=['RDPU','RDPT','RDS','RDC','Other'],CL={RDPU:'RDPU · Pasar Uang',RDPT:'RDPT · Pendapatan Tetap',RDS:'RDS · Saham',RDC:'RDC · Campuran',Other:'Lainnya'},PL=['Bibit','Bareksa','Ajaib','Jago','Bank'];
 let S={v:'home',fp:'',ft:'',ok:false,st:'',target:50000000,tdate:'2027-10-14',h:[],tx:[]};
 /* ---------- PIN ---------- */
 const HASH='3e01260a402d0a920f2d76564e2259806f2c762fd035d3323e980e4d71a63806';let pin='',PINV='',UN=false,hid_t=0;
@@ -155,7 +157,7 @@ return`<div class="row sp"><h1>Transactions</h1><button class="bt" onclick="open
 <div class="c" style="margin-top:14px">${L.map(row).join('')||'<p class="mu">No transactions match. Tap Add to record one.</p>'}</div>`}
 if(S.v=='inv')return`<h1>Investments</h1><div class="c sk" style="margin-top:14px"><div class="row sp"><div><span class="mu">Total invested capital</span><div class="big">${rp(c.cap)}</div></div><div style="text-align:right"><span class="mu">Portfolio value</span><div class="big">${rp(c.pv)}</div><span class="${c.pl>=0?'up':'dn'}">${c.pl>=0?'▲':'▼'} ${rp(c.pl)}</span></div></div></div>
 <p class="mu">Updating a value never creates a transaction, so nothing is counted twice. New funds are added when you record an investment.</p><div class="g">${S.h.map(h=>{const cp=sum(S.tx.filter(x=>x.hid==h.id),x=>x.type=='invest'?x.amt:x.type=='redeem'?-x.amt:0),v=hv(h);
-return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
+return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} • ${esc(CL[h.cat]||h.cat)} • ${h.vd?'valued '+fmt(h.vd):'not valued yet'}</div><div class="row sp" style="margin:8px 0"><span>Invested ${rp(cp)}</span><b>Now ${rp(v)} <span class="${v>=cp?'up':'dn'}">${v>=cp?'▲':'▼'}${rp(v-cp)}</span></b></div>
 <div class="row"><input id="v${h.id}" type="number" inputmode="numeric" placeholder="New current value (Rp)"><button class="bt o" onclick="setV(${h.id})">Update</button></div></div>`}).join('')||'<div class="c"><p class="mu">No funds yet. Record an investment and choose “New mutual fund”.</p></div>'}</div>`;
 return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" style="margin-bottom:12px"><div class="av">F</div><b>Ferry</b><div class="av d" style="margin-left:16px">D</div><b>Dini</b></div>
 <h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label></div>
@@ -185,33 +187,36 @@ else if(m=s.match(/\b(\d{1,3}(?:[.,]\d{3})+|\d{4,})\b/)){e.amt=parseInt(m[1].rep
 const f=s.indexOf('ferry'),d=s.indexOf('dini');e.person=f>=0&&(d<0||f<d)?'Ferry':d>=0?'Dini':e.person;
 e.type=/jual|cairkan|tarik|redeem/.test(s)?'redeem':/investasi|invest|beli|top ?up/.test(s)?'invest':/bayar|\bdp\b|pelunasan|belanja|pakai/.test(s)?'spend':/nabung|tabung|setor|nambah/.test(s)?'saving':'';
 if(m=s.match(/bibit|bareksa|ajaib|jago|bni|bca|mandiri/))e.plat=m[0][0].toUpperCase()+m[0].slice(1);
-e.cat=/pasar uang/.test(s)?'Money Market':/pendapatan tetap|obligasi/.test(s)?'Fixed Income':/saham/.test(s)?'Equity':/campuran/.test(s)?'Balanced':'';
+e.cat=/pasar uang|rdpu/.test(s)?'RDPU':/pendapatan tetap|obligasi|rdpt/.test(s)?'RDPT':/saham|\brds\b/.test(s)?'RDS':/campuran|rdc/.test(s)?'RDC':'';
 e.sc=/katering|catering/.test(s)?'Catering':/gedung|venue/.test(s)?'Venue':/dekor/.test(s)?'Decor':/baju|busana|gaun|jas/.test(s)?'Attire':/foto|video/.test(s)?'Photo/Video':/undangan/.test(s)?'Invitation':e.type=='spend'?'Other':'';
 if(e.type=='invest'||e.type=='redeem'){const C=S.h.filter(h=>(!e.plat||h.plat.toLowerCase()==e.plat.toLowerCase())&&(!e.cat||h.cat==e.cat));
-if(C.length==1)e.hid=String(C[0].id);else if(e.type=='invest'&&!C.length&&(e.plat||e.cat)){e.hid='new';e.fund=e.cat?'Reksa Dana '+e.cat:''}}
+if(C.length==1)e.hid=String(C[0].id);else if(e.type=='invest'&&!C.length&&(e.plat||e.cat)){e.hid='new';e.fund=e.cat?'Reksa Dana '+CL[e.cat].split(' · ')[1]:''}}
 return e}
 const miss=()=>{const b=[];if(!E.date)b.push('date');if(!E.person)b.push('person');if(!E.type)b.push('type');if(!(E.amt>0))b.push('amt');
 if(E.type=='invest'||E.type=='redeem'){if(!E.hid)b.push('fund');else if(E.hid=='new'&&!E.fund.trim())b.push('fund')}return b};
 const LBL={date:'date',person:'who',type:'type',amt:'amount',fund:'mutual fund'};
 const opt=(a,v)=>a.map(x=>`<option value="${x}"${x==v?' selected':''}>${x||'Choose…'}</option>`).join('');
-function form(){const fx=E.type=='invest'||E.type=='redeem',b=k=>bad.includes(k)?' bad':'';
-const ch=(k,a,v)=>`<div class="chips${b(k)}">${a.map(x=>`<button type="button" class="chip${x[0]==v?' on':''}" onclick="E.${k}='${x[0]}';form()">${x[1]}</button>`).join('')}</div>`;
+function pick(k,v){E[k]=v;if(k=='type'&&E.hid=='new'&&v!='invest')E.hid='';renderForm()}
+function renderForm(){const fx=E.type=='invest'||E.type=='redeem',b=k=>bad.includes(k)?' bad':'';
+const ch=(k,a,v,bk)=>`<div class="chips${b(bk||k)}">${a.map(x=>`<button type="button" class="chip${x[0]==v&&v!==''?' on':''}" onclick="pick('${k}','${x[0]}')">${x[1]}</button>`).join('')}</div>`;
+const pls=[...new Set([...PL,'Other',E.plat].filter(Boolean))];
 $('fm').innerHTML=`<div class="fl">What is it?</div>${ch('type',Object.keys(TY).map(k=>[k,TY[k][2]+' '+TY[k][0]]),E.type)}
+${fx?`<div class="fl">Which fund?</div>${ch('hid',[...S.h.map(h=>[h.id,esc(h.name)+'<small>'+esc(h.plat)+' · '+esc(CL[h.cat]||h.cat)+'</small>']),...(E.type=='invest'?[['new','＋ New fund']]:[])],E.hid,'fund')}
+${E.type=='redeem'&&!S.h.length?'<p class="mu">No funds yet, so there is nothing to redeem.</p>':''}
+${E.hid=='new'?`<div class="fg"><label class="w">Fund name<input class="${b('fund').trim()}" value="${esc(E.fund)}" oninput="E.fund=this.value" placeholder="e.g. Sucorinvest Money Market"></label></div>
+<div class="fl">Platform</div>${ch('plat',pls.map(p=>[p,p]),E.plat)}<div class="fl">Fund type</div>${ch('cat',CATS.map(c=>[c,CL[c]]),E.cat)}`:''}`:''}
+${E.type=='spend'?`<div class="fl">Spent on</div>${ch('sc',SPC.map(c=>[c,c]),E.sc)}`:''}
 <div class="fl">Who</div>${ch('person',[['Ferry','Ferry'],['Dini','Dini']],E.person)}
 <div class="fl">Amount</div><input id="am" inputmode="numeric" class="${b('amt').trim()}" placeholder="Rp 0" value="${E.amt?E.amt.toLocaleString('id-ID'):''}" oninput="amt(this)">
 <div class="chips q" style="margin-top:8px">${[[1e5,'100rb'],[5e5,'500rb'],[1e6,'1jt'],[5e6,'5jt']].map(x=>`<button type="button" class="chip" onclick="addA(${x[0]})">+${x[1]}</button>`).join('')}<button type="button" class="chip" onclick="E.amt=0;$('am').value=''">Clear</button></div>
-${fx?`<div class="fl">Mutual fund</div><select class="${b('fund').trim()}" onchange="E.hid=this.value;form()"><option value="">Choose fund…</option>${S.h.map(h=>`<option value="${h.id}"${E.hid==h.id?' selected':''}>${esc(h.name)} · ${esc(h.plat)}</option>`).join('')}${E.type=='invest'?`<option value="new"${E.hid=='new'?' selected':''}>＋ New mutual fund…</option>`:''}</select>
-${E.hid=='new'?`<div class="fg"><label class="w">Fund name<input class="${b('fund').trim()}" value="${esc(E.fund)}" oninput="E.fund=this.value" placeholder="Reksa Dana Pasar Uang"></label><label>Platform<input list="pl" value="${esc(E.plat)}" oninput="E.plat=this.value" placeholder="Bibit…"><datalist id="pl">${PL.map(p=>`<option>${p}`).join('')}</datalist></label><label>Category<select onchange="E.cat=this.value">${opt(['',...CATS],E.cat)}</select></label></div>`:''}
-${E.type=='redeem'&&!S.h.length?'<p class="mu">No funds yet, so there is nothing to redeem.</p>':''}`:''}
-${E.type=='spend'?`<div class="fl">Spent on</div><div class="chips">${SPC.map(c=>`<button type="button" class="chip${E.sc==c?' on':''}" onclick="E.sc='${c}';form()">${c}</button>`).join('')}</div>`:''}
 <div class="fg"><label>Date<input type="date" class="${b('date').trim()}" value="${E.date}" oninput="E.date=this.value"></label><label>Notes (optional)<input value="${esc(E.note)}" oninput="E.note=this.value" placeholder="e.g. DP katering"></label></div>`}
 function amt(el){E.amt=+el.value.replace(/\D/g,'')||0;el.value=E.amt?E.amt.toLocaleString('id-ID'):''}
 function addA(n){E.amt+=n;$('am').value=E.amt.toLocaleString('id-ID')}
-function openSh(){E=blank();bad=[];$('sm').value='';$('msg').style.display='none';form();$('ov').classList.add('on')}
+function openSh(){E=blank();bad=[];$('sm').value='';$('msg').style.display='none';renderForm();$('ov').classList.add('on')}
 function closeSh(){$('ov').classList.remove('on')}
-function readIt(){const t=$('sm').value.trim();if(!t)return;E=parse(t);bad=miss();form();const m=$('msg');m.style.display='block';
+function readIt(){const t=$('sm').value.trim();if(!t)return;E=parse(t);bad=miss();renderForm();const m=$('msg');m.style.display='block';
 m.textContent=bad.length?'I couldn’t find: '+bad.map(k=>LBL[k]).join(', ')+'. Please fill it in below. Nothing is saved yet.':'Check the details below. Nothing is saved until you confirm.'}
-async function save(){if(busy)return;bad=miss();if(bad.length){form();const m=$('msg');m.style.display='block';m.textContent='Please complete: '+bad.map(k=>LBL[k]).join(', ')+'.';return}
+async function save(){if(busy)return;bad=miss();if(bad.length){renderForm();const m=$('msg');m.style.display='block';m.textContent='Please complete: '+bad.map(k=>LBL[k]).join(', ')+'.';return}
 busy=true;$('cf').disabled=true;$('cf').textContent='Saving…';LS('wf_me',E.person);const e={...E};
 const ok=await mutate(()=>{let hid=0;if(e.type=='invest'||e.type=='redeem'){if(e.hid=='new'){const n=e.fund.trim(),p=e.plat.trim()||'—';let h=S.h.find(h=>h.name.toLowerCase()==n.toLowerCase()&&h.plat.toLowerCase()==p.toLowerCase());
 if(!h){h={id:Date.now(),name:n,plat:p,cat:e.cat||'Other',v:0,vd:''};S.h.push(h)}hid=h.id}else hid=+e.hid}
