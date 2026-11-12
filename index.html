@@ -45,18 +45,31 @@ nav.bot .nb{flex-direction:column;gap:2px;font-size:11px;width:auto;padding:6px 
 .chip.on{background:var(--pinkS);border-color:var(--pink);color:var(--pink)}.chips.q .chip{font-size:13px;padding:7px 12px;min-height:36px;color:var(--mu)}
 #msg{margin:10px 0;padding:11px 14px;border-radius:16px;background:var(--cream);font-size:13px;display:none}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:100px;background:var(--tx);color:var(--bg);padding:11px 20px;border-radius:99px;font-weight:700;z-index:120;display:none;max-width:90vw;text-align:center}
-#lk{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;padding:20px}
-.lkb{width:100%;max-width:300px;text-align:center}.lkb .logo{margin:0 0 8px;font-size:26px}
-.dots{display:flex;gap:14px;justify-content:center;margin:22px 0 26px}.dots i{width:15px;height:15px;border-radius:50%;border:2px solid var(--pink)}.dots i.f{background:var(--pink)}
-.dots.shk{animation:sk .4s}@keyframes sk{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
-.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pad button{height:62px;border-radius:50%;border:0;background:var(--pinkS);color:var(--tx);font:800 22px inherit;font-family:inherit;cursor:pointer}.pad button:active{background:var(--pink);color:#fff}.pad .z{visibility:hidden}
+#lk{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;overflow:hidden;background:radial-gradient(circle at 12% 8%,var(--pinkS),transparent 48%),radial-gradient(circle at 92% 90%,var(--lavS),transparent 52%),radial-gradient(circle at 85% 12%,var(--skyS),transparent 32%),var(--bg);transition:opacity .4s,transform .4s}
+#lk.go{opacity:0;transform:scale(1.06);pointer-events:none}
+#lk::before,#lk::after{content:"";position:absolute;border-radius:50%;pointer-events:none;animation:fl 7s ease-in-out infinite}
+#lk::before{width:220px;height:220px;left:-70px;bottom:12%;background:linear-gradient(135deg,var(--lav),var(--pink));opacity:.22}
+#lk::after{width:150px;height:150px;right:-40px;top:14%;background:linear-gradient(135deg,var(--sky),var(--grn));opacity:.28;animation-delay:-3s}
+@keyframes fl{50%{transform:translateY(-22px) scale(1.06)}}
+.lkb{position:relative;z-index:1;width:100%;max-width:320px;text-align:center}
+.heart{width:92px;height:92px;margin:0 auto 14px;border-radius:30px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--pink),var(--lav));box-shadow:0 14px 30px rgba(237,61,131,.35);animation:bob 2.8s ease-in-out infinite}
+.heart svg{animation:beat 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(-3deg)}}@keyframes beat{15%{transform:scale(1.18)}30%{transform:scale(1)}45%{transform:scale(1.12)}}
+.lkb .logo{margin:0 0 4px;font-size:27px}.lkb p{margin:0}
+.dots{display:flex;gap:14px;justify-content:center;margin:24px 0 28px}.dots i{width:18px;height:18px;border-radius:50%;border:2.5px solid var(--pink);background:var(--card);transition:background .15s}.dots i.f{background:var(--pink);animation:pop .3s}
+@keyframes pop{40%{transform:scale(1.5)}}
+.dots.shk{animation:sk .4s}.dots.shk i{border-color:#d0245f}@keyframes sk{25%{transform:translateX(-10px)}75%{transform:translateX(10px)}}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;justify-items:center}
+.pad button{width:78px;height:78px;border-radius:28px;border:0;color:var(--tx);font:800 26px/1 inherit;font-family:inherit;cursor:pointer;background:var(--pinkS);box-shadow:0 6px 0 rgba(41,36,59,.12);transition:transform .08s,box-shadow .08s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.pad button:nth-child(5n+2){background:var(--lavS)}.pad button:nth-child(5n+3){background:var(--skyS)}.pad button:nth-child(5n+4){background:var(--grnS)}.pad button:nth-child(5n){background:var(--cream)}
+.pad button:active{transform:translateY(5px);box-shadow:0 1px 0 rgba(41,36,59,.12)}.pad .z{visibility:hidden}.pad .dl{font-size:22px}
 @media(min-width:860px){aside{display:block}nav.bot{display:none}main{padding-bottom:50px}.g3{grid-template-columns:repeat(3,1fr)}.ov{align-items:center}.sh{border-radius:28px}.toast{bottom:40px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head><body>
 <div class="blob" style="width:340px;height:340px;right:-120px;top:-80px;background:linear-gradient(135deg,#A477F5,#ED3D83);opacity:.22"></div>
 <div class="blob" style="width:280px;height:280px;left:-110px;bottom:60px;background:linear-gradient(135deg,#70C8E8,#9AD76C);opacity:.2"></div>
 <div id="app"></div>
-<div id="lk"><div class="lkb"><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Enter PIN</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div></div></div>
+<div id="lk"><div class="lkb"><div class="heart"><svg viewBox="0 0 24 24" width="46" height="46" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div><div class="logo">Our <span>Wedding</span> Fund</div><p class="mu">Welcome back, Ferry &amp; Dini</p><div class="dots" id="dots"></div><div class="pad" id="pad"></div></div></div>
 <div class="ov" id="ov" onclick="if(event.target===this)closeSh()"><div class="sh">
 <div class="row sp"><h2>Add transaction</h2><button class="x" aria-label="Close" onclick="closeSh()">×</button></div>
 <div class="row"><input id="sm" placeholder="Quick type: hari ini ferry nabung 500rb" onkeydown="if(event.key=='Enter')readIt()"><button class="bt o" onclick="readIt()">Read</button></div>
@@ -74,15 +87,15 @@ const TY={saving:['Savings','var(--grnS)','+'],invest:['Investment','var(--lavS)
 const SPC=['Venue','Catering','Decor','Attire','Photo/Video','Invitation','Other'],CATS=['Money Market','Fixed Income','Equity','Balanced','Other'],PL=['Bibit','Bareksa','Ajaib','Jago','Bank'];
 let S={v:'home',fp:'',ft:'',ok:false,st:'',target:50000000,tdate:'2027-10-14',h:[],tx:[]};
 /* ---------- PIN ---------- */
-const HASH='3e01260a402d0a920f2d76564e2259806f2c762fd035d3323e980e4d71a63806';let pin='',UN=false,hid_t=0;
+const HASH='3e01260a402d0a920f2d76564e2259806f2c762fd035d3323e980e4d71a63806';let pin='',PINV='',UN=false,hid_t=0;
 const sha=async s=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,'0')).join('');
 const dots=()=>$('dots').innerHTML=[0,1,2,3,4,5].map(i=>`<i class="${i<pin.length?'f':''}"></i>`).join('');
-$('pad').innerHTML=[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="${k===''?'z':''}" onclick="key('${k}')">${k}</button>`).join('');dots();
+$('pad').innerHTML=[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map(k=>`<button class="${k===''?'z':k=='⌫'?'dl':''}" onclick="key('${k}')">${k}</button>`).join('');dots();
 async function key(k){if(UN||!k&&k!==0)return;if(k=='⌫')pin=pin.slice(0,-1);else if(pin.length<6)pin+=k;dots();if(pin.length<6)return;
 let ok=false;try{ok=await sha(pin)==HASH}catch(e){toast('Open this app via its https link')}
-if(ok){UN=true;$('lk').style.display='none';pin='';dots();start()}else{$('dots').classList.add('shk');navigator.vibrate&&navigator.vibrate(120);setTimeout(()=>{$('dots').classList.remove('shk');pin='';dots()},400)}}
+if(ok){UN=true;PINV=pin;$('lk').classList.add('go');setTimeout(()=>{if(UN)$('lk').style.display='none'},400);pin='';dots();start()}else{$('dots').classList.add('shk');navigator.vibrate&&navigator.vibrate(120);setTimeout(()=>{$('dots').classList.remove('shk');pin='';dots()},400)}}
 addEventListener('keydown',e=>{if(!UN&&/^\d$/.test(e.key))key(e.key);if(!UN&&e.key=='Backspace')key('⌫')});
-function lockNow(){UN=false;pin='';dots();$('lk').style.display='grid';closeSh()}
+function lockNow(){UN=false;pin='';dots();$('lk').style.display='grid';requestAnimationFrame(()=>$('lk').classList.remove('go'));closeSh()}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)hid_t=Date.now();else if(UN){if(Date.now()-hid_t>12e4)lockNow();else if(cfg())load()}});
 /* ---------- GitHub sync (data.json in a private repo) ---------- */
 const cfg=()=>{try{return JSON.parse(LS('wf_cfg'))}catch(e){return null}};let SHA='';
@@ -97,9 +110,15 @@ async function push(msg){const r=await fetch(API()+'/contents/data.json',{method
 if(r.status==409||r.status==422)return false;if(!r.ok)throw new Error('Save failed ('+r.status+')');SHA=(await r.json()).content.sha;return true}
 async function mutate(fn,msg){try{for(let i=0;i<3;i++){await pull();fn();if(await push(msg)){S.ok=true;S.st='Synced';R();return true}}throw new Error('Sync conflict, please try again')}catch(e){toast(e.message);load();return false}}
 async function load(){S.st='Syncing…';R();try{await pull();S.ok=true;S.st='Synced'}catch(e){S.st='Offline: '+e.message}R()}
-function start(){if(!cfg()){S.v='setup';R()}else{if(S.v=='setup')S.v='home';load()}}
+async function start(){if(!cfg()){S.st='Syncing…';R();await autoCfg()}if(!cfg()){S.v='setup';R()}else{if(S.v=='setup')S.v='home';load()}}
 async function connect(){const repo=$('gr').value.trim().replace(/^https?:\/\/github\.com\//,'').replace(/\/$/,''),token=$('gt').value.trim();if(!/^[\w.-]+\/[\w.-]+$/.test(repo)||!token)return toast('Fill repo as owner/name and the token');
 LS('wf_cfg',JSON.stringify({repo,token}));try{await pull();S.ok=true;S.st='Synced';S.v='home';R();toast('Connected')}catch(e){LS('wf_cfg',null);toast(e.message)}}
+/* shared setup: token encrypted with the PIN, stored as config.json next to index.html */
+const B=a=>btoa(String.fromCharCode(...new Uint8Array(a))),U=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dk(p,salt){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(p),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function makeShared(){const c=cfg();if(!c)return toast('Connect this phone first');try{const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},await dk(PINV,salt),new TextEncoder().encode(JSON.stringify(c)));
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({v:1,s:B(salt),i:B(iv),c:B(ct)})],{type:'application/json'}));a.download='config.json';a.click();toast('config.json saved. Upload it to the wedding-app repo')}catch(e){toast('Could not create the file')}}
+async function autoCfg(){try{const r=await fetch('config.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return false;const j=await r.json(),pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:U(j.i)},await dk(PINV,U(j.s)),U(j.c));LS('wf_cfg',new TextDecoder().decode(pt));return true}catch(e){return false}}
 function disconnect(){if(confirm('Disconnect this phone? Your data stays safe in GitHub.')){LS('wf_cfg',null);S.ok=false;S.v='setup';R()}}
 /* ---------- calc & views ---------- */
 function calc(){const T=S.tx,by=t=>sum(T.filter(x=>x.type==t),x=>x.amt),sv=by('saving'),iv=by('invest'),rd=by('redeem'),sp=by('spend');
@@ -141,7 +160,8 @@ return`<div class="c lv"><b>${esc(h.name)}</b><div class="mu">${esc(h.plat)} •
 return`<h1>Profile</h1><div class="c" style="margin-top:14px"><div class="row" style="margin-bottom:12px"><div class="av">F</div><b>Ferry</b><div class="av d" style="margin-left:16px">D</div><b>Dini</b></div>
 <h2>Wedding fund</h2><div class="fg"><label>Target amount (Rp)<input type="number" value="${S.target}" onchange="setT('target',+this.value)"></label><label>Target date<input type="date" value="${S.tdate}" onchange="setT('tdate',this.value)"></label></div>
 <p class="mu">Currency IDR • Date format DD MMM YYYY • Timezone Asia/Makassar</p></div>
-<div class="c" style="margin-top:14px"><h2>This phone</h2><p class="mu">Connected to ${esc((cfg()||{}).repo||'')} • ${esc(S.st)}</p><div class="row" style="flex-wrap:wrap"><button class="bt o" onclick="load()">Sync now</button><button class="bt o" onclick="lockNow()">Lock now</button><button class="bt o" onclick="disconnect()">Disconnect</button></div></div>`}
+<div class="c" style="margin-top:14px"><h2>This phone</h2><p class="mu">Connected to ${esc((cfg()||{}).repo||'')} • ${esc(S.st)}</p><div class="row" style="flex-wrap:wrap"><button class="bt o" onclick="load()">Sync now</button><button class="bt o" onclick="lockNow()">Lock now</button><button class="bt o" onclick="disconnect()">Disconnect</button></div></div>
+<div class="c" style="margin-top:14px"><h2>Shared setup</h2><p class="mu">Creates config.json so other phones connect with just the PIN. Upload it to the wedding-app repo.</p><button class="bt o" onclick="makeShared()">Create shared setup file</button></div>`}
 function R(){$('app').innerHTML=`<aside><div class="logo">Our<br><span>Wedding</span><br>Fund</div>${NAV.map(nb).join('')}<button class="bt" style="width:100%;margin-top:18px" onclick="openSh()">Add transaction</button></aside>
 <main>${view()}</main>${S.v=='setup'?'':`<nav class="bot">${nb(NAV[0])}${nb(NAV[1])}<button class="fab" aria-label="Add transaction" onclick="openSh()">${I('plus')}</button>${nb(NAV[2])}${nb(NAV[3])}</nav>`}`;
 document.querySelectorAll('[data-n]').forEach(e=>{const n=+e.dataset.n,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/800);e.textContent=rp(n*p);if(p<1)requestAnimationFrame(f)})(t0)});
